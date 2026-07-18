@@ -2,12 +2,32 @@ import React from 'react';
 import { FadeIn } from '../animations/FadeIn';
 import { motion } from 'framer-motion';
 import { goals2026, profile } from '../../data/profile';
-import { FocusMotionGraphic } from '../animations/FocusMotionGraphic';
 
 const categories = [
-  { key: 'infrastructure' as const, label: 'Infrastructure', color: '#45b7d1' },
-  { key: 'development' as const, label: 'Development', color: '#4ecdc4' },
-  { key: 'automation' as const, label: 'Automation', color: '#B600A8' },
+  {
+    key: 'infrastructure' as const,
+    label: 'Infrastructure',
+    color: '#45b7d1',
+    image: 'https://images.unsplash.com/photo-1775519520461-6b6e068d9250?q=80&w=900&auto=format&fit=crop',
+    imageAlt: 'Server rack with cables and compute hardware',
+    eyebrow: 'Cloud / K8s / Security',
+  },
+  {
+    key: 'development' as const,
+    label: 'Development',
+    color: '#4ecdc4',
+    image: 'https://images.unsplash.com/photo-1778146476147-5f8d4bd03c79?q=80&w=900&auto=format&fit=crop',
+    imageAlt: 'Laptop workspace with code editor open',
+    eyebrow: 'React / Next.js / OSS',
+  },
+  {
+    key: 'automation' as const,
+    label: 'Automation',
+    color: '#B600A8',
+    image: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=900&auto=format&fit=crop',
+    imageAlt: 'Monitoring dashboard with performance metrics',
+    eyebrow: 'CI/CD / GitOps / Python',
+  },
 ];
 
 export const FocusSection: React.FC = () => {
@@ -35,14 +55,35 @@ export const FocusSection: React.FC = () => {
         </FadeIn>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {categories.map(({ key, label, color }, i) => (
+          {categories.map(({ key, label, color, image, imageAlt, eyebrow }, i) => (
             <FadeIn key={key} delay={i * 0.1}>
               <motion.div
                 className="h-full rounded-[28px] bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 sm:p-8 hover:bg-white/[0.05] hover:border-white/20 transition-all duration-500 relative overflow-hidden group"
                 whileHover={{ y: -4 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
               >
-                <FocusMotionGraphic color={color} index={i} />
+                <div className="relative h-40 mb-7 rounded-[22px] overflow-hidden border border-white/10 bg-black/30">
+                  <img
+                    src={image}
+                    alt={imageAlt}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover opacity-75 saturate-[0.9] contrast-[1.06] transition-all duration-700 group-hover:scale-105 group-hover:opacity-95"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/35 to-transparent" />
+                  <motion.div
+                    className="absolute inset-x-5 bottom-5 h-px"
+                    style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }}
+                    animate={{ x: ['-30%', '30%', '-30%'], opacity: [0.35, 0.9, 0.35] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.35 }}
+                  />
+                  <div
+                    className="absolute left-4 top-4 h-2.5 w-2.5 rounded-full"
+                    style={{ backgroundColor: color, boxShadow: `0 0 22px ${color}` }}
+                  />
+                  <span className="absolute left-4 bottom-4 text-[11px] font-medium uppercase tracking-[0.2em] text-white/75">
+                    {eyebrow}
+                  </span>
+                </div>
 
                 <h3 className="text-white font-bold uppercase tracking-wider mb-6 text-lg">
                   {label}
