@@ -49,16 +49,16 @@ export const MarqueeSection: React.FC = () => {
   const row2 = [...row2Icons, ...row2Icons, ...row2Icons, ...row2Icons];
 
   return (
-    <section ref={containerRef} className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden flex flex-col gap-6">
+    <section ref={containerRef} className="bg-bg-primary pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden flex flex-col gap-6">
       {/* Row 1 - Tech Stack */}
       <motion.div 
         className="flex gap-6 w-max"
         style={{ x: row1X, willChange: 'transform' }}
       >
         {row1.map((icon, i) => (
-          <div key={`tech-${i}`} className="flex flex-col items-center justify-center w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-[#1a1a1a] border border-white/5 shadow-xl shrink-0">
+          <div key={`tech-${i}`} className="flex flex-col items-center justify-center w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-bg-inverse/[0.05] border border-border-primary shadow-xl shrink-0">
             <img src={icon.src} alt={icon.name} className="w-12 h-12 sm:w-16 sm:h-16 object-contain mb-3" />
-            <span className="text-[#D7E2EA]/60 text-xs sm:text-sm font-medium tracking-wider uppercase">{icon.name}</span>
+            <span className="text-text-muted/80 text-xs sm:text-sm font-medium tracking-wider uppercase">{icon.name}</span>
           </div>
         ))}
       </motion.div>
@@ -69,9 +69,9 @@ export const MarqueeSection: React.FC = () => {
         style={{ x: row2X, willChange: 'transform' }}
       >
         {row2.map((icon, i) => (
-          <div key={`ai-${i}`} className="flex flex-col items-center justify-center w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-[#1a1a1a] border border-white/5 shadow-xl shrink-0">
+          <div key={`ai-${i}`} className="flex flex-col items-center justify-center w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-bg-inverse/[0.05] border border-border-primary shadow-xl shrink-0">
             <img src={icon.src} alt={icon.name} className="w-12 h-12 sm:w-16 sm:h-16 object-contain mb-3" />
-            <span className="text-[#D7E2EA]/60 text-xs sm:text-sm font-medium tracking-wider uppercase">{icon.name}</span>
+            <span className="text-text-muted/80 text-xs sm:text-sm font-medium tracking-wider uppercase">{icon.name}</span>
           </div>
         ))}
       </motion.div>

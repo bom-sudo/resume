@@ -32,7 +32,7 @@ const categories = [
 
 export const FocusSection: React.FC = () => {
   return (
-    <section id="focus" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-[#0C0C0C] relative z-10 border-t border-white/5 overflow-hidden">
+    <section id="focus" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-bg-primary relative z-10 border-t border-border-primary overflow-hidden">
       <motion.div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full blur-[120px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(182,0,168,0.12) 0%, transparent 70%)' }}
@@ -43,12 +43,12 @@ export const FocusSection: React.FC = () => {
       <div className="max-w-5xl mx-auto relative">
         <FadeIn delay={0} y={30}>
           <h2
-            className="font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/20 text-center mb-4"
+            className="font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-text-primary via-text-primary to-text-primary/20 text-center mb-4"
             style={{ fontSize: 'clamp(2.5rem, 8vw, 72px)' }}
           >
             2026 Focus
           </h2>
-          <p className="text-[#D7E2EA]/60 text-center max-w-2xl mx-auto mb-16 font-light leading-relaxed">
+          <p className="text-text-muted/80 text-center max-w-2xl mx-auto mb-16 font-light leading-relaxed">
             Currently learning {profile.learning.join(', ')} — pushing toward full-stack capability
             while deepening infrastructure expertise.
           </p>
@@ -58,11 +58,11 @@ export const FocusSection: React.FC = () => {
           {categories.map(({ key, label, color, image, imageAlt, eyebrow }, i) => (
             <FadeIn key={key} delay={i * 0.1}>
               <motion.div
-                className="h-full rounded-[28px] bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 sm:p-8 hover:bg-white/[0.05] hover:border-white/20 transition-all duration-500 relative overflow-hidden group"
+                className="h-full rounded-[28px] bg-bg-inverse/[0.03] backdrop-blur-xl border border-border-primary p-6 sm:p-8 hover:bg-bg-inverse/[0.05] transition-all duration-500 relative overflow-hidden group"
                 whileHover={{ y: -4 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
               >
-                <div className="relative h-40 mb-7 rounded-[22px] overflow-hidden border border-white/10 bg-black/30">
+                <div className="relative h-40 mb-7 rounded-[22px] overflow-hidden border border-border-primary bg-black/30">
                   <img
                     src={image}
                     alt={imageAlt}
@@ -85,14 +85,14 @@ export const FocusSection: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-white font-bold uppercase tracking-wider mb-6 text-lg">
+                <h3 className="text-text-primary font-bold uppercase tracking-wider mb-6 text-lg">
                   {label}
                 </h3>
                 <ul className="space-y-4">
                   {goals2026[key].map((goal, gi) => (
                     <motion.li
                       key={goal}
-                      className="text-[#D7E2EA]/70 text-sm leading-relaxed flex gap-3"
+                      className="text-text-muted text-sm leading-relaxed flex gap-3"
                       initial={{ opacity: 0, x: -8 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}

@@ -6,10 +6,12 @@ import { FocusSection } from './components/sections/FocusSection';
 import { ServicesSection } from './components/sections/ServicesSection';
 import { ProjectsSection } from './components/sections/ProjectsSection';
 import { FooterSection } from './components/sections/FooterSection';
+import { ThemeToggle } from './components/ThemeToggle';
 
 function App() {
   return (
-    <main className="bg-[#0C0C0C] min-h-screen text-[#D7E2EA] font-sans selection:bg-[#B600A8]/30 selection:text-white">
+    <main className="bg-bg-primary min-h-screen text-text-muted font-sans selection:bg-[#B600A8]/30 selection:text-white">
+      <ThemeToggle />
       <HeroSection />
       <MarqueeSection />
       <AboutSection />

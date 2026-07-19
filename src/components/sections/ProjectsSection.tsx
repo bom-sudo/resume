@@ -101,7 +101,7 @@ const projects: Project[] = [
 
 export const ProjectsSection: React.FC = () => {
   return (
-    <section id="projects" className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-20 pb-32">
+    <section id="projects" className="bg-bg-primary rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-20 pb-32">
       <div className="pt-20 sm:pt-24 md:pt-32 pb-10">
         <h2 className="hero-heading font-black uppercase text-center" style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}>
           Project
@@ -137,7 +137,7 @@ const ProjectCard: React.FC<{ project: Project, index: number, totalCards: numbe
     <div ref={cardRef} className="h-[85vh] sticky flex items-center justify-center w-full" style={{ top: `${topOffset}px` }}>
       <motion.div 
         style={{ scale }}
-        className="w-full h-full max-h-[800px] bg-[#0C0C0C] border-2 rounded-[40px] sm:rounded-[50px] md:rounded-[60px] p-4 sm:p-6 md:p-8 flex flex-col gap-6 shadow-2xl relative overflow-hidden"
+        className="w-full h-full max-h-[800px] bg-bg-primary border-2 border-border-primary rounded-[40px] sm:rounded-[50px] md:rounded-[60px] p-4 sm:p-6 md:p-8 flex flex-col gap-6 shadow-2xl relative overflow-hidden"
         transition={{ type: 'spring', stiffness: 260, damping: 28 }}
         whileHover={{ borderColor: project.accent }}
       >
@@ -147,15 +147,15 @@ const ProjectCard: React.FC<{ project: Project, index: number, totalCards: numbe
         />
 
         {/* Header Row */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-white/10">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-border-primary">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <span className="text-[#D7E2EA] font-medium text-2xl" style={{ color: project.accent }}>{project.num}</span>
-            <span className="px-4 py-1.5 rounded-full border border-white/20 text-[#D7E2EA] text-sm uppercase tracking-wide">
+            <span className="text-text-primary font-medium text-2xl" style={{ color: project.accent }}>{project.num}</span>
+            <span className="px-4 py-1.5 rounded-full border border-border-primary text-text-primary text-sm uppercase tracking-wide">
               {project.label}
             </span>
             <div>
-              <h3 className="text-[#D7E2EA] font-medium text-xl sm:text-2xl uppercase tracking-wider">{project.title}</h3>
-              <p className="text-[#D7E2EA]/60 font-light mt-1">{project.desc}</p>
+              <h3 className="text-text-primary font-medium text-xl sm:text-2xl uppercase tracking-wider">{project.title}</h3>
+              <p className="text-text-muted/80 font-light mt-1">{project.desc}</p>
             </div>
           </div>
           <LiveProjectButton href={project.href} label={project.buttonLabel} />
@@ -180,7 +180,7 @@ const ProjectImageTile: React.FC<{
   className?: string;
   featured?: boolean;
 }> = ({ image, accent, className = '', featured = false }) => (
-  <div className={`group/tile relative overflow-hidden border border-white/10 bg-white/[0.03] ${featured ? 'rounded-[30px] sm:rounded-[40px] md:rounded-[50px]' : 'rounded-[30px] sm:rounded-[40px]'} ${className}`}>
+  <div className={`group/tile relative overflow-hidden border border-border-primary bg-bg-inverse/[0.03] ${featured ? 'rounded-[30px] sm:rounded-[40px] md:rounded-[50px]' : 'rounded-[30px] sm:rounded-[40px]'} ${className}`}>
     <img
       src={image.src}
       alt={image.alt}

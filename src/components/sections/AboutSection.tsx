@@ -7,7 +7,7 @@ import { profile } from '../../data/profile';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="min-h-screen flex flex-col justify-center items-center px-5 sm:px-8 md:px-10 py-20 relative overflow-hidden bg-[#0C0C0C]">
+    <section id="about" className="min-h-screen flex flex-col justify-center items-center px-5 sm:px-8 md:px-10 py-20 relative overflow-hidden bg-bg-primary">
       
       {/* 4 Decorative 3D Images */}
       <FadeIn delay={0.1} x={-80} y={0} duration={0.9} className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] pointer-events-none">
@@ -34,7 +34,7 @@ export const AboutSection: React.FC = () => {
       </FadeIn>
 
       {/* Animated Paragraph */}
-      <div className="relative z-10 text-center text-[#D7E2EA] font-medium max-w-[560px] mx-auto mb-16 sm:mb-20 md:mb-24 leading-relaxed" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}>
+      <div className="relative z-10 text-center text-text-muted font-medium max-w-[560px] mx-auto mb-16 sm:mb-20 md:mb-24 leading-relaxed" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}>
         <AnimatedText text={`${profile.role} based in ${profile.location}. ${profile.background} — now at ${profile.company}, focused on ${profile.currentFocus.join(', ')}. I enjoy automation, system architecture, and building AI-driven content tools on the side. Let's build something amazing together!`} />
       </div>
 

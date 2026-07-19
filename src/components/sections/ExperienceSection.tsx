@@ -8,7 +8,7 @@ import { AnimatedStepIndex } from '../animations/AnimatedStepIndex';
 
 export const ExperienceSection: React.FC = () => {
   return (
-    <section id="journey" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-[#0C0C0C] relative z-10">
+    <section id="journey" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-bg-primary relative z-10">
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[150px]" />
@@ -18,12 +18,12 @@ export const ExperienceSection: React.FC = () => {
         <div className="lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-center lg:py-32">
           <FadeIn delay={0} y={30}>
             <h2
-              className="font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/20 mb-6"
+              className="font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-text-primary via-text-primary to-text-primary/20 mb-6"
               style={{ fontSize: 'clamp(3rem, 8vw, 80px)' }}
             >
               Journey
             </h2>
-            <p className="text-[#D7E2EA]/70 font-medium text-base sm:text-lg leading-relaxed max-w-md mb-6">
+            <p className="text-text-muted font-medium text-base sm:text-lg leading-relaxed max-w-md mb-6">
               {profile.background} — from game systems to enterprise QA, now building and maintaining
               critical infrastructure at {profile.company}.
             </p>
@@ -31,7 +31,7 @@ export const ExperienceSection: React.FC = () => {
             <JourneyMotionGraphic />
 
             <motion.div
-              className="relative overflow-hidden py-3 border-y border-white/[0.06]"
+              className="relative overflow-hidden py-3 border-y border-border-primary"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -45,7 +45,7 @@ export const ExperienceSection: React.FC = () => {
                   (item, i) => (
                     <span
                       key={`${item}-${i}`}
-                      className="text-[#D7E2EA]/50 text-xs uppercase tracking-[0.3em] font-medium"
+                      className="text-text-muted/60 text-xs uppercase tracking-[0.3em] font-medium"
                     >
                       {item}
                     </span>
@@ -67,7 +67,7 @@ export const ExperienceSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="group block rounded-[32px] bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 sm:p-8 md:p-10 hover:bg-white/[0.05] hover:border-white/20 transition-all duration-500 cursor-pointer shadow-2xl overflow-hidden relative"
+              className="group block rounded-[32px] bg-bg-inverse/[0.03] backdrop-blur-xl border border-border-primary p-6 sm:p-8 md:p-10 hover:bg-bg-inverse/[0.05] transition-all duration-500 cursor-pointer shadow-2xl overflow-hidden relative"
             >
               <motion.div
                 className="absolute -top-20 -right-20 w-40 h-40 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"
@@ -77,7 +77,7 @@ export const ExperienceSection: React.FC = () => {
               <div className="flex items-start justify-between mb-2 relative">
                 <AnimatedStepIndex index={i} accent={exp.accent} />
                 <motion.div
-                  className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 text-white/50 group-hover:text-white group-hover:bg-white/10 transition-colors"
+                  className="w-10 h-10 rounded-lg bg-bg-inverse/[0.05] flex items-center justify-center border border-border-primary text-text-muted group-hover:text-text-inverse group-hover:bg-bg-inverse transition-colors"
                   whileHover={{ rotate: 45 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
@@ -85,14 +85,14 @@ export const ExperienceSection: React.FC = () => {
                 </motion.div>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-bold text-text-primary mb-2 tracking-tight">
                 {exp.title}
               </h3>
-              <p className="text-[#D7E2EA]/50 text-sm uppercase tracking-widest mb-6">
+              <p className="text-text-muted/60 text-sm uppercase tracking-widest mb-6">
                 {exp.fullCompany}
               </p>
 
-              <div className="w-full aspect-video sm:aspect-[16/9] rounded-2xl bg-[#0a0a0a] border border-white/5 flex items-center justify-center overflow-hidden mb-6 relative shadow-inner">
+              <div className="w-full aspect-video sm:aspect-[16/9] rounded-2xl bg-bg-primary border border-border-primary flex items-center justify-center overflow-hidden mb-6 relative shadow-inner">
                 <motion.div
                   className="absolute inset-0 opacity-30"
                   style={{
@@ -102,7 +102,7 @@ export const ExperienceSection: React.FC = () => {
                   transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
                 />
                 <div
-                  className="absolute inset-[1px] rounded-2xl bg-[#0a0a0a] flex items-center justify-center overflow-hidden"
+                  className="absolute inset-[1px] rounded-2xl bg-bg-primary flex items-center justify-center overflow-hidden"
                 >
                   <motion.img
                     src={exp.iconSrc}
@@ -114,7 +114,7 @@ export const ExperienceSection: React.FC = () => {
                 </div>
               </div>
 
-              <p className="text-[#D7E2EA]/70 font-light leading-relaxed mb-6 text-sm sm:text-base">
+              <p className="text-text-muted/90 font-light leading-relaxed mb-6 text-sm sm:text-base">
                 {exp.description}
               </p>
 
@@ -122,7 +122,7 @@ export const ExperienceSection: React.FC = () => {
                 {exp.highlights.map((tag, hi) => (
                   <motion.li
                     key={tag}
-                    className="flex items-center gap-3 text-[#D7E2EA]/60 text-sm"
+                    className="flex items-center gap-3 text-text-muted/80 text-sm"
                     initial={{ opacity: 0, x: -12 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -139,12 +139,12 @@ export const ExperienceSection: React.FC = () => {
                 ))}
               </ul>
 
-              <div className="flex items-center justify-between border-t border-white/10 pt-6">
-                <p className="text-[#D7E2EA]/60 font-medium text-sm md:text-base tracking-widest uppercase">
+              <div className="flex items-center justify-between border-t border-border-primary pt-6">
+                <p className="text-text-muted font-medium text-sm md:text-base tracking-widest uppercase">
                   {exp.company}
                 </p>
                 <motion.div
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-300 text-white/50"
+                  className="w-10 h-10 rounded-full bg-bg-inverse/[0.05] border border-border-primary flex items-center justify-center group-hover:bg-text-primary group-hover:text-bg-primary transition-colors duration-300 text-text-muted"
                   whileHover={{ scale: 1.08 }}
                 >
                   <ArrowUpRight className="w-4 h-4" />

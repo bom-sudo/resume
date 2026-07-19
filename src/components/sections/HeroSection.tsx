@@ -91,7 +91,7 @@ export const HeroSection: React.FC = () => {
         muted
         playsInline
       />
-      <div className="absolute inset-0 bg-[#0C0C0C]/70 -z-10" />
+      <div className="absolute inset-0 bg-bg-primary/70 -z-10" />
 
       {/* Navbar */}
       <FadeIn delay={0} y={-20} className="w-full pt-6 md:pt-8 relative z-50 px-6">
@@ -100,7 +100,7 @@ export const HeroSection: React.FC = () => {
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`} 
-              className="px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-[#D7E2EA]/70 hover:text-white hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 ease-out"
+              className="px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-text-muted/70 hover:text-text-primary hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 ease-out"
             >
               {item}
             </a>
@@ -143,7 +143,7 @@ export const HeroSection: React.FC = () => {
         {/* Existing Bottom Text Bar */}
         <div className="flex justify-between items-end w-full">
           <FadeIn delay={0.35} y={20}>
-            <p className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[280px]" style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}>
+            <p className="text-text-muted font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[280px]" style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}>
               infrastructure engineer bridging robust systems & modern development
             </p>
           </FadeIn>

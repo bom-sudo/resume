@@ -66,7 +66,7 @@ export const JourneyMotionGraphic: React.FC = () => {
 
           <motion.path
             d={PATH_D}
-            stroke="rgba(255,255,255,0.08)"
+            className="stroke-border-primary"
             strokeWidth="2"
             strokeLinecap="round"
           />
@@ -118,7 +118,7 @@ export const JourneyMotionGraphic: React.FC = () => {
                 height="40"
               >
                 <motion.div
-                  className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center p-1"
+                  className="w-full h-full rounded-full overflow-hidden bg-bg-inverse flex items-center justify-center p-1"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
@@ -132,7 +132,7 @@ export const JourneyMotionGraphic: React.FC = () => {
 
           <motion.circle
             r="5"
-            fill="white"
+            className="fill-text-primary"
             filter="url(#journeyGlow)"
             style={{ offsetPath: `path('${PATH_D}')`, offsetDistance }}
           />
@@ -159,10 +159,10 @@ export const JourneyMotionGraphic: React.FC = () => {
               >
                 0{i + 1}
               </span>
-              <span className="text-white/90 text-xs font-semibold leading-tight max-w-[90px]">
+              <span className="text-text-primary text-xs font-semibold leading-tight max-w-[90px]">
                 {step.title}
               </span>
-              <span className="text-white/35 text-[10px] uppercase tracking-widest mt-0.5">
+              <span className="text-text-muted text-[10px] uppercase tracking-widest mt-0.5 opacity-60">
                 {step.company}
               </span>
             </motion.div>
@@ -181,7 +181,7 @@ export const JourneyMotionGraphic: React.FC = () => {
             animate={{ opacity: [1, 0.3, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
-          <span className="text-[10px] uppercase tracking-[0.25em] text-white/40">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-text-muted opacity-60">
             Live path
           </span>
         </motion.div>
