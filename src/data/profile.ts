@@ -10,7 +10,7 @@ export const profile = {
   line: "https://line.me/ti/p/cheeky4d",
   facebook: "https://www.facebook.com/natiphong.jungin/",
   spotify: "https://open.spotify.com/playlist/3QSWFaeoyqts5vXwlm62i5?si=5aab5dc978b34d8b",
-  github: "https://github.com/natiphong-ju",
+  github: "https://github.com/bom-sudo",
   currentFocus: ["Data Center Optimization", "SAP Basis", "Kubernetes"],
   learning: ["React.js", "Next.js", "Advanced K8s Patterns"],
   hobbies: ["Automation", "System Architecture", "Tech Exploration"],
@@ -25,7 +25,7 @@ export const profile = {
 
 export const journey = [
   {
-    title: "Game Specialist",
+    title: "Tester and Game Specialist",
     company: "Persec",
     fullCompany: "Persec Co., Ltd.",
     period: "Starting Point",

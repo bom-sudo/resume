@@ -5,6 +5,7 @@ import { ExperienceSection } from './components/sections/ExperienceSection';
 import { FocusSection } from './components/sections/FocusSection';
 import { ServicesSection } from './components/sections/ServicesSection';
 import { ProjectsSection } from './components/sections/ProjectsSection';
+import { FooterSection } from './components/sections/FooterSection';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <FocusSection />
       <ServicesSection />
       <ProjectsSection />
+      <FooterSection />
     </main>
   );
 }

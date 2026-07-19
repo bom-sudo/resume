@@ -102,7 +102,7 @@ Here are the tools and technologies I use to build, deploy, and maintain systems
 
 ```mermaid
 graph LR
-    A[Game Specialist<br/>Persec] --> B[Software Tester<br/>AIS]
+    A[Tester and Game Specialist<br/>Persec] --> B[Software Tester<br/>AIS]
     B --> C[Infrastructure Engineer<br/>PWA]
     
     style A fill:#ff6b6b,stroke:#c92a2a,stroke-width:2px,color:#fff

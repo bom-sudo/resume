@@ -25,7 +25,7 @@ export const JourneyMotionGraphic: React.FC = () => {
   return (
     <div ref={ref} className="relative w-full max-w-[320px] aspect-square mx-auto lg:mx-0 mb-10">
       <motion.div
-        className="absolute inset-0 rounded-[40px] border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm overflow-hidden"
+        className="absolute inset-0 overflow-visible"
         initial={{ opacity: 0, scale: 0.92 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -83,7 +83,7 @@ export const JourneyMotionGraphic: React.FC = () => {
           {[0, 1, 2].map((i) => (
             <motion.circle
               key={`pulse-${i}`}
-              r="28"
+              r="38"
               cx={NODE_POSITIONS[i].cx}
               cy={NODE_POSITIONS[i].cy}
               fill={journey[i].accent}
@@ -103,7 +103,7 @@ export const JourneyMotionGraphic: React.FC = () => {
               <motion.circle
                 cx={NODE_POSITIONS[i].cx}
                 cy={NODE_POSITIONS[i].cy}
-                r="10"
+                r="22"
                 fill={step.accent}
                 filter="url(#journeyGlow)"
                 initial={{ scale: 0 }}
@@ -111,16 +111,22 @@ export const JourneyMotionGraphic: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 + i * 0.2, type: 'spring', stiffness: 200 }}
               />
-              <motion.circle
-                cx={NODE_POSITIONS[i].cx}
-                cy={NODE_POSITIONS[i].cy}
-                r="4"
-                fill="white"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 + i * 0.2 }}
-              />
+              <foreignObject
+                x={NODE_POSITIONS[i].cx - 20}
+                y={NODE_POSITIONS[i].cy - 20}
+                width="40"
+                height="40"
+              >
+                <motion.div
+                  className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center p-1"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 + i * 0.2, type: 'spring', stiffness: 200 }}
+                >
+                  <img src={step.iconSrc} alt={step.company} className="w-full h-full object-contain" />
+                </motion.div>
+              </foreignObject>
             </g>
           ))}
 
