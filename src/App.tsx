@@ -10,7 +10,7 @@ import { ThemeToggle } from './components/ThemeToggle';
 
 function App() {
   return (
-    <main className="bg-bg-primary min-h-screen text-text-muted font-sans selection:bg-[#B600A8]/30 selection:text-white">
+    <main className="bg-bg-primary min-h-screen text-text-muted font-sans selection:bg-[#B600A8]/30 selection:text-white overflow-x-hidden w-full">
       <ThemeToggle />
       <HeroSection />
       <MarqueeSection />

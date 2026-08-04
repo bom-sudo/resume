@@ -22,7 +22,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
     <motion.div
       initial={{ opacity: 0, y, x }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
-      viewport={{ once: true, margin: "50px", amount: 0 }}
+      viewport={{ once: true, margin: "0px", amount: 0 }}
       transition={{ 
         delay, 
         duration, 

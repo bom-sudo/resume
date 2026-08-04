@@ -15,7 +15,7 @@ export const ExperienceSection: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-[400px_1fr] xl:grid-cols-[460px_1fr] gap-12 lg:gap-24 xl:gap-32">
-        <div className="lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-center lg:py-32">
+        <div className="min-w-0 lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-center lg:py-32">
           <FadeIn delay={0} y={30}>
             <h2
               className="font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-text-primary via-text-primary to-text-primary/20 mb-6"
@@ -28,7 +28,9 @@ export const ExperienceSection: React.FC = () => {
               critical infrastructure at {profile.company}.
             </p>
 
-            <JourneyMotionGraphic />
+            <div className="hidden lg:block">
+              <JourneyMotionGraphic />
+            </div>
 
             <motion.div
               className="relative overflow-hidden py-3 border-y border-border-primary"
@@ -56,7 +58,7 @@ export const ExperienceSection: React.FC = () => {
           </FadeIn>
         </div>
 
-        <div className="flex flex-col gap-12 lg:py-32">
+        <div className="min-w-0 flex flex-col gap-12 lg:py-32">
           {journey.map((exp, i) => (
             <motion.a
               key={exp.company}
@@ -65,7 +67,7 @@ export const ExperienceSection: React.FC = () => {
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="group block rounded-[32px] bg-bg-inverse/[0.03] backdrop-blur-xl border border-border-primary p-6 sm:p-8 md:p-10 hover:bg-bg-inverse/[0.05] transition-all duration-500 cursor-pointer shadow-2xl overflow-hidden relative"
             >
