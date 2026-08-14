@@ -122,7 +122,7 @@ export const HeroSection: React.FC = () => {
       {/* Hero Portrait */}
       <FadeIn delay={0.6} y={30} className="absolute left-1/2 -translate-x-1/2 z-10 top-[45%] sm:top-auto sm:bottom-48 md:bottom-60 lg:bottom-[18rem] -translate-y-1/2 sm:translate-y-0 pointer-events-none">
         <Magnet padding={150} strength={3}>
-          <div className="w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px] flex items-center justify-center relative pointer-events-auto">
+          <div className="w-[360px] sm:w-[460px] md:w-[560px] lg:w-[680px] xl:w-[760px] flex items-center justify-center relative pointer-events-auto">
             <img
               src="/assets/images/hero.png"
               alt="BOM-Sudo"

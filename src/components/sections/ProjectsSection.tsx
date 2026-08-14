@@ -96,6 +96,31 @@ const projects: Project[] = [
     href: profile.github,
     buttonLabel: "View on GitHub",
     accent: "#4ecdc4",
+  },
+  {
+    num: "04",
+    label: "Client",
+    title: "Garan BKK",
+    desc: "Premium Shirt Store",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=900&auto=format&fit=crop",
+        alt: "Classic t-shirt on a hanger",
+        label: "Product Focus",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=900&auto=format&fit=crop",
+        alt: "Clothing rack with various shirts",
+        label: "Collection",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1200&auto=format&fit=crop",
+        alt: "Modern clothing store aesthetic",
+        label: "Store Experience",
+      },
+    ],
+    href: "https://garanbkk.vercel.app/",
+    accent: "#3A86FF",
   }
 ];
 

@@ -56,7 +56,9 @@
   .hero-heading {
     background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 
   .liquid-glass {
@@ -77,6 +79,7 @@
     padding: 1.4px;
     background: linear-gradient(180deg, rgba(var(--glass-color), 0.45) 0%, rgba(var(--glass-color), 0.15) 20%, rgba(var(--glass-color), 0) 40%, rgba(var(--glass-color), 0) 60%, rgba(var(--glass-color), 0.15) 80%, rgba(var(--glass-color), 0.45) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
