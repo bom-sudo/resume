@@ -6,7 +6,7 @@ import { useLanguage } from '../../context/LanguageContext';
 
 
 export const HeroSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const navItems = [
     { key: 'about', label: t.nav.about },
     { key: 'journey', label: t.nav.journey },
@@ -121,7 +121,13 @@ export const HeroSection: React.FC = () => {
       <div className="flex-1 flex flex-col justify-center relative z-10 -mt-16 md:-mt-32">
         <div className="overflow-hidden w-full">
           <FadeIn delay={0.15} y={40} className="w-full">
-            <h1 className="hero-heading font-black uppercase tracking-tighter leading-none whitespace-nowrap w-full text-center text-[17vw] sm:text-[18vw] md:text-[19vw] lg:text-[20vw] scale-105">
+            <h1
+              className={`hero-heading font-black uppercase tracking-tighter leading-none whitespace-nowrap w-full text-center scale-105 ${
+                lang === 'th'
+                  ? 'text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17vw]'
+                  : 'text-[17vw] sm:text-[18vw] md:text-[19vw] lg:text-[20vw]'
+              }`}
+            >
               {t.hero.heading}
             </h1>
           </FadeIn>

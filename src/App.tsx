@@ -13,7 +13,7 @@ import { LanguageProvider } from './context/LanguageContext';
 function App() {
   return (
     <LanguageProvider>
-      <main className="bg-bg-primary min-h-screen text-text-muted font-sans selection:bg-[#B600A8]/30 selection:text-white overflow-x-hidden w-full">
+      <main className="bg-bg-primary min-h-screen text-text-muted font-sans selection:bg-[#B600A8]/30 selection:text-white overflow-x-clip w-full">
         <ThemeToggle />
         <LanguageToggle />
         <HeroSection />
