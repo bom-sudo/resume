@@ -141,7 +141,7 @@ export const HeroSection: React.FC = () => {
             <img
               src="/assets/images/hero.png"
               alt="BOM-Sudo"
-              className="w-full h-auto object-contain drop-shadow-2xl"
+              className="max-w-full max-h-[32vh] sm:max-h-[34vh] md:max-h-[35vh] lg:max-h-[36vh] w-auto h-auto object-contain drop-shadow-2xl"
               style={{
                 WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
                 maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)'
