@@ -1,7 +1,9 @@
 import React from 'react';
 import { profile } from '../../data/profile';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const ContactButton: React.FC = () => {
+  const { t } = useLanguage();
   return (
     <a 
       href={`mailto:${profile.email}`}
@@ -11,7 +13,7 @@ export const ContactButton: React.FC = () => {
         boxShadow: '0px 4px 4px rgba(181, 1, 167, 0.25), inset 4px 4px 12px #7721B1'
       }}
     >
-      Contact Me
+      {t.ui.contactMe}
     </a>
   );
 };

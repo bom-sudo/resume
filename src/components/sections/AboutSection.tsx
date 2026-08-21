@@ -2,10 +2,11 @@ import React from 'react';
 import { FadeIn } from '../animations/FadeIn';
 import { AnimatedText } from '../animations/AnimatedText';
 import { ContactButton } from '../ui/ContactButton';
-import { profile } from '../../data/profile';
+import { useLanguage } from '../../context/LanguageContext';
 
 
 export const AboutSection: React.FC = () => {
+  const { t } = useLanguage();
   return (
     <section id="about" className="min-h-screen flex flex-col justify-center items-center px-5 sm:px-8 md:px-10 py-20 relative overflow-hidden bg-bg-primary">
       
@@ -29,13 +30,13 @@ export const AboutSection: React.FC = () => {
       {/* Heading */}
       <FadeIn delay={0} y={40} className="w-full flex justify-center mb-10 sm:mb-14 md:mb-16">
         <h2 className="hero-heading font-black uppercase text-center leading-none tracking-tight" style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}>
-          About me
+          {t.about.heading}
         </h2>
       </FadeIn>
 
       {/* Animated Paragraph */}
       <div className="relative z-10 text-center text-text-muted font-medium max-w-[560px] mx-auto mb-16 sm:mb-20 md:mb-24 leading-relaxed" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}>
-        <AnimatedText text={`${profile.role} based in ${profile.location}. ${profile.background} — now at ${profile.company}, focused on ${profile.currentFocus.join(', ')}. I enjoy automation, system architecture, and building AI-driven content tools on the side. Let's build something amazing together!`} />
+        <AnimatedText text={t.about.paragraph} />
       </div>
 
       <ContactButton />

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { journey } from '../../data/profile';
+import { useLanguage } from '../../context/LanguageContext';
 
 const NODE_POSITIONS = [
   { cx: 72, cy: 72 },
@@ -12,6 +13,8 @@ const PATH_D =
   'M 72 72 C 140 72 180 110 200 168 C 220 226 160 250 88 268';
 
 export const JourneyMotionGraphic: React.FC = () => {
+  const { t } = useLanguage();
+  const steps = journey.map((step, i) => ({ ...step, title: t.journey.entries[i].title }));
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -138,7 +141,7 @@ export const JourneyMotionGraphic: React.FC = () => {
           />
         </svg>
 
-        {journey.map((step, i) => {
+        {steps.map((step, i) => {
           const align = i === 1 ? 'items-center text-center' : 'items-start';
           const left = i === 1 ? 'left-1/2 -translate-x-1/2' : i === 0 ? 'left-2' : 'left-4';
           const top =
@@ -182,7 +185,7 @@ export const JourneyMotionGraphic: React.FC = () => {
             transition={{ duration: 2, repeat: Infinity }}
           />
           <span className="text-[10px] uppercase tracking-[0.25em] text-text-muted opacity-60">
-            Live path
+            {t.ui.livePath}
           </span>
         </motion.div>
       </motion.div>

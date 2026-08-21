@@ -2,11 +2,15 @@ import React from 'react';
 import { FadeIn } from '../animations/FadeIn';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { journey, profile } from '../../data/profile';
+import { journey } from '../../data/profile';
 import { JourneyMotionGraphic } from '../animations/JourneyMotionGraphic';
 import { AnimatedStepIndex } from '../animations/AnimatedStepIndex';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const ExperienceSection: React.FC = () => {
+  const { t } = useLanguage();
+  const entries = journey.map((exp, i) => ({ ...exp, ...t.journey.entries[i] }));
+
   return (
     <section id="journey" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-bg-primary relative z-10">
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
@@ -21,11 +25,10 @@ export const ExperienceSection: React.FC = () => {
               className="font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-text-primary via-text-primary to-text-primary/20 mb-6"
               style={{ fontSize: 'clamp(3rem, 8vw, 80px)' }}
             >
-              Journey
+              {t.journey.heading}
             </h2>
             <p className="text-text-muted font-medium text-base sm:text-lg leading-relaxed max-w-md mb-6">
-              {profile.background} — from game systems to enterprise QA, now building and maintaining
-              critical infrastructure at {profile.company}.
+              {t.journey.intro}
             </p>
 
             <div className="hidden lg:block">
@@ -43,7 +46,7 @@ export const ExperienceSection: React.FC = () => {
                 animate={{ x: ['0%', '-50%'] }}
                 transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
               >
-                {[...profile.currentFocus, ...profile.currentFocus, ...profile.currentFocus].map(
+                {[...t.journey.tickerItems, ...t.journey.tickerItems, ...t.journey.tickerItems].map(
                   (item, i) => (
                     <span
                       key={`${item}-${i}`}
@@ -59,7 +62,7 @@ export const ExperienceSection: React.FC = () => {
         </div>
 
         <div className="min-w-0 flex flex-col gap-12 lg:py-32">
-          {journey.map((exp, i) => (
+          {entries.map((exp, i) => (
             <motion.a
               key={exp.company}
               href={exp.href}

@@ -1,34 +1,18 @@
 import React from 'react';
 import { FadeIn } from '../animations/FadeIn';
-
-const services = [
-  {
-    name: "Enterprise Architecture",
-    desc: "Designing and scaling high-availability systems with SAP Basis, Kubernetes, and cloud-native patterns for enterprise resilience."
-  },
-  {
-    name: "AI Automation Pipelines",
-    desc: "Designing Claude Code-driven workflows that chain transcript extraction, FFmpeg processing, and TTS/dubbing into fast, repeatable production pipelines."
-  },
-  {
-    name: "Infrastructure Security",
-    desc: "Mapping ISO/IEC 27001 controls to real infrastructure, closing forensic and compliance gaps across cloud and on-prem systems."
-  },
-  {
-    name: "AI-Powered Content Tools",
-    desc: "Building products like CutDock — AI video editing tooling that combines Whisper, Claude, and FFmpeg to turn raw footage into finished content."
-  }
-];
+import { useLanguage } from '../../context/LanguageContext';
 
 export const ServicesSection: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" className="bg-bg-primary rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32 relative z-10 -mt-10">
       <h2 className="text-text-primary font-black uppercase text-center mb-16 sm:mb-20 md:mb-28" style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}>
-        SKILLS
+        {t.services.heading}
       </h2>
 
       <div className="max-w-5xl mx-auto flex flex-col">
-        {services.map((service, i) => (
+        {t.services.items.map((service, i) => (
           <FadeIn key={i} delay={i * 0.1}>
             <div className="flex flex-col md:flex-row gap-6 md:gap-12 py-8 sm:py-10 md:py-12 border-t border-border-primary first:border-t-0">
               <div className="text-text-primary font-black leading-none" style={{ fontSize: 'clamp(3rem, 10vw, 140px)' }}>

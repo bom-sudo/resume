@@ -2,9 +2,18 @@ import React, { useEffect, useRef } from 'react';
 import { FadeIn } from '../animations/FadeIn';
 import { Magnet } from '../animations/Magnet';
 import { ContactButton } from '../ui/ContactButton';
+import { useLanguage } from '../../context/LanguageContext';
 
 
 export const HeroSection: React.FC = () => {
+  const { t } = useLanguage();
+  const navItems = [
+    { key: 'about', label: t.nav.about },
+    { key: 'journey', label: t.nav.journey },
+    { key: 'skills', label: t.nav.skills },
+    { key: 'projects', label: t.nav.projects },
+    { key: 'contact', label: t.nav.contact },
+  ];
   const videoRef = useRef<HTMLVideoElement>(null);
   const fadingOutRef = useRef(false);
   const rAFRef = useRef<number | null>(null);
@@ -96,13 +105,13 @@ export const HeroSection: React.FC = () => {
       {/* Navbar */}
       <FadeIn delay={0} y={-20} className="w-full pt-6 md:pt-8 relative z-50 px-6">
         <nav className="liquid-glass rounded-full px-2 py-2 max-w-5xl mx-auto flex justify-between sm:justify-center sm:gap-8 items-center font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem]">
-          {["About", "Journey", "Skills", "Projects", "Contact"].map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
+          {navItems.map((item) => (
+            <a
+              key={item.key}
+              href={`#${item.key}`}
               className="px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-text-muted/70 hover:text-text-primary hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 ease-out"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </nav>
@@ -113,7 +122,7 @@ export const HeroSection: React.FC = () => {
         <div className="overflow-hidden w-full">
           <FadeIn delay={0.15} y={40} className="w-full">
             <h1 className="hero-heading font-black uppercase tracking-tighter leading-none whitespace-nowrap w-full text-center text-[17vw] sm:text-[18vw] md:text-[19vw] lg:text-[20vw] scale-105">
-              Hi, i'm bom
+              {t.hero.heading}
             </h1>
           </FadeIn>
         </div>
@@ -144,7 +153,7 @@ export const HeroSection: React.FC = () => {
         <div className="flex justify-between items-end w-full">
           <FadeIn delay={0.35} y={20}>
             <p className="text-text-muted font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[280px]" style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}>
-              infrastructure engineer bridging robust systems & modern development
+              {t.hero.subtitle}
             </p>
           </FadeIn>
           <FadeIn delay={0.5} y={20}>

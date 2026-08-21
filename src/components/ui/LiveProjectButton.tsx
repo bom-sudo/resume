@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface LiveProjectButtonProps {
   href?: string;
@@ -7,20 +8,21 @@ interface LiveProjectButtonProps {
 
 export const LiveProjectButton: React.FC<LiveProjectButtonProps> = ({
   href,
-  label = 'Live Project',
+  label,
 }) => {
+  const { t } = useLanguage();
   const className =
     'rounded-full border-2 border-text-primary text-text-primary font-medium uppercase tracking-widest px-8 py-3 sm:px-10 sm:py-3.5 hover:bg-text-primary hover:text-bg-primary transition-colors duration-300 text-xs sm:text-sm md:text-base whitespace-nowrap';
 
   if (href) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
-        {label}
+        {label ?? t.ui.liveProject}
       </a>
     );
   }
 
   return (
-    <span className={`${className} opacity-50 cursor-default`}>Coming Soon</span>
+    <span className={`${className} opacity-50 cursor-default`}>{t.ui.comingSoon}</span>
   );
 };

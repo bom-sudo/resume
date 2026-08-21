@@ -7,20 +7,25 @@ import { ServicesSection } from './components/sections/ServicesSection';
 import { ProjectsSection } from './components/sections/ProjectsSection';
 import { FooterSection } from './components/sections/FooterSection';
 import { ThemeToggle } from './components/ThemeToggle';
+import { LanguageToggle } from './components/LanguageToggle';
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   return (
-    <main className="bg-bg-primary min-h-screen text-text-muted font-sans selection:bg-[#B600A8]/30 selection:text-white overflow-x-hidden w-full">
-      <ThemeToggle />
-      <HeroSection />
-      <MarqueeSection />
-      <AboutSection />
-      <ExperienceSection />
-      <FocusSection />
-      <ServicesSection />
-      <ProjectsSection />
-      <FooterSection />
-    </main>
+    <LanguageProvider>
+      <main className="bg-bg-primary min-h-screen text-text-muted font-sans selection:bg-[#B600A8]/30 selection:text-white overflow-x-hidden w-full">
+        <ThemeToggle />
+        <LanguageToggle />
+        <HeroSection />
+        <MarqueeSection />
+        <AboutSection />
+        <ExperienceSection />
+        <FocusSection />
+        <ServicesSection />
+        <ProjectsSection />
+        <FooterSection />
+      </main>
+    </LanguageProvider>
   );
 }
 

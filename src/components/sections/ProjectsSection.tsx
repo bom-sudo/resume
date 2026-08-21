@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { LiveProjectButton } from '../ui/LiveProjectButton';
 import { profile } from '../../data/profile';
+import { useLanguage } from '../../context/LanguageContext';
 
 type ProjectImage = {
   src: string;
@@ -20,27 +21,22 @@ type Project = {
   accent: string;
 };
 
-const projects: Project[] = [
+const projectMeta = [
   {
     num: "01",
-    label: "Personal",
     title: "Cutdock",
-    desc: "AI video editing SaaS",
     images: [
       {
         src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=900&auto=format&fit=crop",
         alt: "Video editing software timeline on a monitor",
-        label: "Timeline",
       },
       {
         src: "https://images.unsplash.com/photo-1551302175-952301267d19?q=80&w=900&auto=format&fit=crop",
         alt: "Creative workstation with video editing panels",
-        label: "Editor UI",
       },
       {
         src: "https://images.unsplash.com/photo-1574717024239-25253f4ef40a?q=80&w=1200&auto=format&fit=crop",
         alt: "Professional video editing workspace",
-        label: "AI Post-production",
       },
     ],
     href: "https://cutdock.vercel.app/",
@@ -48,24 +44,19 @@ const projects: Project[] = [
   },
   {
     num: "02",
-    label: "Client",
     title: "Daily Cookware",
-    desc: "Premium Cookware Store",
     images: [
       {
         src: "https://images.unsplash.com/photo-1556910096-6f5e72db6803?q=80&w=900&auto=format&fit=crop",
         alt: "Cookware displayed on a wooden shelf",
-        label: "Product Display",
       },
       {
         src: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?q=80&w=900&auto=format&fit=crop",
         alt: "Cookware and peppermill on a kitchen counter",
-        label: "Kitchen Detail",
       },
       {
         src: "https://images.unsplash.com/photo-1518291344630-4857135fb581?q=80&w=1200&auto=format&fit=crop",
         alt: "Frying pan and ingredients arranged on a blue surface",
-        label: "Store Visual",
       },
     ],
     href: "https://dailycookware.com/",
@@ -73,63 +64,72 @@ const projects: Project[] = [
   },
   {
     num: "03",
-    label: "Personal",
     title: "AI Content Pipeline",
-    desc: "Claude Code + FFmpeg + ElevenLabs pipeline",
     images: [
       {
         src: "https://images.unsplash.com/photo-1778146476147-5f8d4bd03c79?q=80&w=900&auto=format&fit=crop",
         alt: "Laptop workspace with source code open",
-        label: "Automation Code",
       },
       {
         src: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=900&auto=format&fit=crop",
         alt: "Monitoring dashboard showing quality metrics",
-        label: "Quality Metrics",
       },
       {
         src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
         alt: "Analytics dashboard open on a laptop",
-        label: "Pipeline Dashboard",
       },
     ],
     href: profile.github,
-    buttonLabel: "View on GitHub",
     accent: "#4ecdc4",
   },
   {
     num: "04",
-    label: "Client",
     title: "Garan BKK",
-    desc: "Premium Shirt Store",
     images: [
       {
         src: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=900&auto=format&fit=crop",
         alt: "Classic t-shirt on a hanger",
-        label: "Product Focus",
       },
       {
         src: "https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=900&auto=format&fit=crop",
         alt: "Clothing rack with various shirts",
-        label: "Collection",
       },
       {
         src: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1200&auto=format&fit=crop",
         alt: "Modern clothing store aesthetic",
-        label: "Store Experience",
       },
     ],
     href: "https://garanbkk.vercel.app/",
     accent: "#3A86FF",
-  }
+  },
 ];
 
 export const ProjectsSection: React.FC = () => {
+  const { t } = useLanguage();
+
+  const projects: Project[] = projectMeta.map((meta, i) => {
+    const text = t.projects.items[i];
+    return {
+      num: meta.num,
+      title: meta.title,
+      href: meta.href,
+      accent: meta.accent,
+      label: text.label,
+      desc: text.desc,
+      buttonLabel: text.buttonLabel,
+      images: [
+        { ...meta.images[0], label: text.images[0] },
+        { ...meta.images[1], label: text.images[1] },
+        { ...meta.images[2], label: text.images[2] },
+      ],
+    };
+  });
+
   return (
     <section id="projects" className="bg-bg-primary rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-20 pb-32">
       <div className="pt-20 sm:pt-24 md:pt-32 pb-10">
         <h2 className="hero-heading font-black uppercase text-center" style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}>
-          Project
+          {t.projects.heading}
         </h2>
       </div>
 

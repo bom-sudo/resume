@@ -1,36 +1,33 @@
 import React from 'react';
 import { FadeIn } from '../animations/FadeIn';
 import { motion } from 'framer-motion';
-import { goals2026, profile } from '../../data/profile';
+import { useLanguage } from '../../context/LanguageContext';
 
-const categories = [
+const categoryMeta = [
   {
     key: 'infrastructure' as const,
-    label: 'Infrastructure',
     color: '#45b7d1',
     image: 'https://images.unsplash.com/photo-1775519520461-6b6e068d9250?q=80&w=900&auto=format&fit=crop',
     imageAlt: 'Server rack with cables and compute hardware',
-    eyebrow: 'Cloud / K8s / Security',
   },
   {
     key: 'development' as const,
-    label: 'Development',
     color: '#4ecdc4',
     image: 'https://images.unsplash.com/photo-1778146476147-5f8d4bd03c79?q=80&w=900&auto=format&fit=crop',
     imageAlt: 'Laptop workspace with code editor open',
-    eyebrow: 'React / Next.js / OSS',
   },
   {
     key: 'automation' as const,
-    label: 'Automation',
     color: '#B600A8',
     image: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=900&auto=format&fit=crop',
     imageAlt: 'Monitoring dashboard with performance metrics',
-    eyebrow: 'CI/CD / GitOps / Python',
   },
 ];
 
 export const FocusSection: React.FC = () => {
+  const { t } = useLanguage();
+  const categories = categoryMeta.map((meta, i) => ({ ...meta, ...t.focus.categories[i] }));
+
   return (
     <section id="focus" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-bg-primary relative z-10 border-t border-border-primary overflow-hidden">
       <motion.div
@@ -46,11 +43,10 @@ export const FocusSection: React.FC = () => {
             className="font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-text-primary via-text-primary to-text-primary/20 text-center mb-4"
             style={{ fontSize: 'clamp(2.5rem, 8vw, 72px)' }}
           >
-            2026 Focus
+            {t.focus.heading}
           </h2>
           <p className="text-text-muted/80 text-center max-w-2xl mx-auto mb-16 font-light leading-relaxed">
-            Currently learning {profile.learning.join(', ')} — pushing toward full-stack capability
-            while deepening infrastructure expertise.
+            {t.focus.intro}
           </p>
         </FadeIn>
 
@@ -89,7 +85,7 @@ export const FocusSection: React.FC = () => {
                   {label}
                 </h3>
                 <ul className="space-y-4">
-                  {goals2026[key].map((goal, gi) => (
+                  {t.focus.goals[key].map((goal, gi) => (
                     <motion.li
                       key={goal}
                       className="text-text-muted text-sm leading-relaxed flex gap-3"

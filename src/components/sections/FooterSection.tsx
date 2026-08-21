@@ -2,8 +2,10 @@ import React from 'react';
 import { MessageCircle, Music, Users, Code, ArrowUpRight } from 'lucide-react';
 import { FadeIn } from '../animations/FadeIn';
 import { profile } from '../../data/profile';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const FooterSection: React.FC = () => {
+  const { t } = useLanguage();
   return (
     <footer id="contact" className="relative min-h-screen bg-bg-primary overflow-hidden flex flex-col justify-between items-center rounded-t-[40px] sm:rounded-t-[60px] -mt-10 isolate z-0 border-t border-border-primary px-6 py-16 sm:py-24">
       {/* Background Grids & Glows */}
@@ -28,14 +30,14 @@ export const FooterSection: React.FC = () => {
         {/* Section Index tag */}
         <FadeIn delay={0.05} y={15}>
           <span className="text-[#B600A8] text-sm font-bold uppercase tracking-[0.3em] mb-4 block drop-shadow-md">
-            Get in touch
+            {t.footer.eyebrow}
           </span>
         </FadeIn>
 
         {/* Big Bold Heading */}
         <FadeIn delay={0.1} y={20}>
           <h2 className="hero-heading font-black uppercase tracking-tighter leading-none mb-8 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[7vw]">
-            Let's Connect
+            {t.footer.heading}
           </h2>
         </FadeIn>
 
@@ -53,10 +55,10 @@ export const FooterSection: React.FC = () => {
         {/* Ask Me About Topic Clouds */}
         <FadeIn delay={0.2} y={20} className="mb-14">
           <p className="text-text-muted text-xs uppercase tracking-[0.25em] mb-5 font-medium">
-            Ask me about
+            {t.footer.askMeAboutLabel}
           </p>
           <div className="flex flex-wrap justify-center gap-3 max-w-2xl">
-            {profile.askMeAbout.map((topic) => (
+            {t.footer.askMeAbout.map((topic) => (
               <span
                 key={topic}
                 className="liquid-glass rounded-full px-5 py-2 text-text-primary text-xs uppercase tracking-wider border border-border-primary bg-bg-inverse/[0.05] hover:border-border-primary hover:bg-bg-inverse/[0.1] hover:text-text-primary transition-all duration-300 shadow-lg"
@@ -70,7 +72,7 @@ export const FooterSection: React.FC = () => {
         {/* Tagline */}
         <FadeIn delay={0.25} y={20} className="max-w-xl mb-12">
           <p className="text-text-muted text-base sm:text-lg font-light leading-relaxed">
-            {profile.tagline} Open to collaboration, learning, and building something amazing together.
+            {t.footer.tagline}
           </p>
         </FadeIn>
 
@@ -106,7 +108,7 @@ export const FooterSection: React.FC = () => {
       {/* Footer Bottom Info */}
       <FadeIn delay={0.4} y={15} className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center border-t border-border-primary pt-8 mt-12 gap-4 text-xs text-text-muted tracking-wider">
         <p>© {new Date().getFullYear()} {profile.name} "{profile.nickname}". All rights reserved.</p>
-        <p className="uppercase">Designed & Built with Passion</p>
+        <p className="uppercase">{t.footer.builtWith}</p>
       </FadeIn>
     </footer>
   );
