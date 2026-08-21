@@ -246,7 +246,7 @@ export const content: Record<Lang, Content> = {
       contact: "ติดต่อ",
     },
     hero: {
-      heading: "สวัสดี ผมบอม",
+      heading: "สวัสดี ผม บอม",
       subtitle: "วิศวกรโครงสร้างพื้นฐาน ผู้เชื่อมโยงระบบที่แข็งแกร่งเข้ากับการพัฒนาซอฟต์แวร์ยุคใหม่",
     },
     about: {
