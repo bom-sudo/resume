@@ -6,6 +6,12 @@ interface JourneyEntryText {
   highlights: [string, string, string];
 }
 
+interface EducationEntryText {
+  degree: string;
+  description: string;
+  highlights: [string, string];
+}
+
 interface FocusCategoryText {
   label: string;
   eyebrow: string;
@@ -50,6 +56,11 @@ export interface Content {
   about: {
     heading: string;
     paragraph: string;
+  };
+  education: {
+    heading: string;
+    intro: string;
+    entries: [EducationEntryText, EducationEntryText];
   };
   journey: {
     heading: string;
@@ -124,6 +135,24 @@ export const content: Record<Lang, Content> = {
       heading: "About me",
       paragraph:
         "I'm Natiphong — everyone just calls me Bom. My path into tech didn't start in a data center; it started testing games and troubleshooting hardware, learning to stay calm when something breaks and dig until I find out why. That instinct carried me into enterprise QA at Thailand's biggest telecom, and eventually into my current role as an Infrastructure Engineer at the Provincial Waterworks Authority, where I keep SAP Basis, Kubernetes clusters, and data center operations running for a national utility. What actually excites me is the overlap between infrastructure and software — most nights you'll find me exploring React, Next.js, or building small AI-driven automation tools just to see how far an idea can go. If it involves systems, curiosity, or a good problem worth untangling, I'm in.",
+    },
+    education: {
+      heading: "Education",
+      intro: "The foundation before the field — where the curiosity for systems first took shape.",
+      entries: [
+        {
+          degree: "Science-Math Program, Huai Thap Than Witthayakhom School",
+          description:
+            "Long before 'infrastructure' was even in my vocabulary, I was the kid taking apart every gadget I could get my hands on — usually followed by trying (and sometimes failing) to put it back together. The Science-Math track gave that curiosity a home, and turned 'why does this work?' into an actual habit.",
+          highlights: ["Science-Math Track", "Built (and broke) things"],
+        },
+        {
+          degree: "B.Sc. Computer Science, Ubon Ratchathani University",
+          description:
+            "Four years of Computer Science later, I'd traded broken gadgets for broken code — same curiosity, bigger systems. Somewhere between data structures and networking labs, 'infrastructure' stopped sounding like a buzzword and started sounding like a career.",
+          highlights: ["Computer Science", "Systems & Networks"],
+        },
+      ],
     },
     journey: {
       heading: "Journey",
@@ -274,6 +303,24 @@ export const content: Record<Lang, Content> = {
       heading: "เกี่ยวกับฉัน",
       paragraph:
         "ผมชื่อเนติพงษ์ แต่ทุกคนเรียกผมว่า \"บอม\" เส้นทางสายเทคโนโลยีของผมไม่ได้เริ่มต้นในศูนย์ข้อมูล แต่เริ่มจากการทดสอบเกมและแก้ปัญหาฮาร์ดแวร์ ที่สอนให้ผมใจเย็นเมื่อระบบมีปัญหา และไม่ยอมหยุดจนกว่าจะเจอสาเหตุที่แท้จริง สัญชาตญาณนั้นพาผมเข้าสู่งาน QA ระดับองค์กรที่บริษัทโทรคมนาคมที่ใหญ่ที่สุดของไทย และในที่สุดก็มาถึงบทบาทปัจจุบันในตำแหน่งวิศวกรโครงสร้างพื้นฐานที่การประปาส่วนภูมิภาค ซึ่งผมดูแล SAP Basis, Kubernetes clusters และงานศูนย์ข้อมูลให้กับองค์กรรัฐวิสาหกิจระดับประเทศ สิ่งที่ทำให้ผมสนุกจริง ๆ คือจุดที่ Infrastructure กับ Software มาบรรจบกัน หลายคืนคุณจะเจอผมกำลังศึกษา React, Next.js หรือลงมือสร้างเครื่องมือ Automation เล็ก ๆ ด้วย AI เพียงเพื่ออยากรู้ว่าไอเดียนั้นจะไปได้ไกลแค่ไหน ถ้าเรื่องนั้นเกี่ยวกับระบบ ความอยากรู้อยากเห็น หรือปัญหาที่น่าคลี่คลาย ผมพร้อมลงมือเสมอ",
+    },
+    education: {
+      heading: "การศึกษา",
+      intro: "รากฐานก่อนจะมาถึงสายงานจริง จุดที่ความอยากรู้เรื่องระบบเริ่มก่อตัวขึ้น",
+      entries: [
+        {
+          degree: "สายวิทยาศาสตร์-คณิตศาสตร์ โรงเรียนห้วยทับทันวิทยาคม",
+          description:
+            "ก่อนจะรู้จักคำว่า \"Infrastructure\" ด้วยซ้ำ ผมคือเด็กที่ชอบแกะของเล่นทุกอย่างที่จับได้ แล้วก็พยายาม (บางทีก็ล้มเหลว) ประกอบมันกลับคืน แผนการเรียนวิทย์-คณิตให้พื้นที่กับความอยากรู้แบบนี้ และทำให้ \"ทำไมมันถึงทำงานแบบนี้\" กลายเป็นนิสัยติดตัวไปเลย",
+          highlights: ["สายวิทย์-คณิต", "แกะ (และพัง) ของเล่น"],
+        },
+        {
+          degree: "วท.บ. วิทยาการคอมพิวเตอร์ มหาวิทยาลัยอุบลราชธานี",
+          description:
+            "สี่ปีในสาขาวิทยาการคอมพิวเตอร์ เปลี่ยนจากแกะของเล่นพังมาเป็นแกะโค้ดพัง ความอยากรู้เหมือนเดิม แต่ระบบใหญ่ขึ้นเยอะ ระหว่างวิชาโครงสร้างข้อมูลกับแล็บเน็ตเวิร์ก คำว่า \"Infrastructure\" ก็เริ่มไม่ใช่แค่ศัพท์เท่ ๆ แต่กลายเป็นเส้นทางอาชีพจริง ๆ",
+          highlights: ["วิทยาการคอมพิวเตอร์", "ระบบและเครือข่าย"],
+        },
+      ],
     },
     journey: {
       heading: "เส้นทาง",
