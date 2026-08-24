@@ -9,7 +9,9 @@ const TOP_MARGIN = 55;
 const BOTTOM_MARGIN = 55;
 const LEFT_X = 80;
 const RIGHT_X = 200;
-const NODE_CLEARANCE = 40;
+const LABEL_GAP = 32;
+const LABEL_WIDTH = 118;
+const LABEL_HEIGHT = 100;
 
 interface NodePosition {
   cx: number;
@@ -164,6 +166,47 @@ export const JourneyMotionGraphic: React.FC = () => {
             </g>
           ))}
 
+          {steps.map((step, i) => {
+            const { cx, cy } = nodePositions[i];
+            const isLeft = cx <= VIEW_WIDTH / 2;
+            const x = isLeft ? cx + LABEL_GAP : cx - LABEL_GAP - LABEL_WIDTH;
+            const y = cy - LABEL_HEIGHT / 2;
+
+            return (
+              <foreignObject
+                key={step.company}
+                x={x}
+                y={y}
+                width={LABEL_WIDTH}
+                height={LABEL_HEIGHT}
+                style={{ overflow: 'visible' }}
+              >
+                <motion.div
+                  className={`flex flex-col pointer-events-none ${
+                    isLeft ? 'items-start text-left' : 'items-end text-right'
+                  }`}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 + i * 0.15, duration: 0.6 }}
+                >
+                  <span
+                    className="text-[10px] font-bold uppercase tracking-[0.2em] mb-0.5"
+                    style={{ color: step.accent }}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-text-primary text-xs font-semibold leading-tight">
+                    {step.title}
+                  </span>
+                  <span className="text-text-muted text-[10px] uppercase tracking-widest mt-0.5 opacity-60">
+                    {step.company}
+                  </span>
+                </motion.div>
+              </foreignObject>
+            );
+          })}
+
           <motion.circle
             r="5"
             className="fill-text-primary"
@@ -171,46 +214,6 @@ export const JourneyMotionGraphic: React.FC = () => {
             style={{ offsetPath: `path('${pathD}')`, offsetDistance }}
           />
         </svg>
-
-        {steps.map((step, i) => {
-          const { cx, cy } = nodePositions[i];
-          const isLeft = cx <= VIEW_WIDTH / 2;
-          const leftPct = (cx / VIEW_WIDTH) * 100;
-          const topPct = (cy / VIEW_HEIGHT) * 100;
-
-          return (
-            <motion.div
-              key={step.company}
-              className={`absolute flex flex-col max-w-[100px] pointer-events-none ${
-                isLeft ? 'items-start text-left' : 'items-end text-right'
-              }`}
-              style={{
-                left: `${leftPct}%`,
-                top: `${topPct}%`,
-                transform: isLeft
-                  ? `translate(${NODE_CLEARANCE}px, -50%)`
-                  : `translate(calc(-100% - ${NODE_CLEARANCE}px), -50%)`,
-              }}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 + i * 0.15, duration: 0.6 }}
-            >
-              <span
-                className="text-[10px] font-bold uppercase tracking-[0.2em] mb-0.5"
-                style={{ color: step.accent }}
-              >
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <span className="text-text-primary text-xs font-semibold leading-tight">
-                {step.title}
-              </span>
-              <span className="text-text-muted text-[10px] uppercase tracking-widest mt-0.5 opacity-60">
-                {step.company}
-              </span>
-            </motion.div>
-          );
-        })}
 
         <motion.div
           className="absolute bottom-4 right-4 flex items-center gap-2"
