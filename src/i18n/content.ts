@@ -71,6 +71,16 @@ export interface Content {
     heading: string;
     items: [ServiceText, ServiceText, ServiceText, ServiceText];
   };
+  techStack: {
+    heading: string;
+    intro: string;
+    categories: {
+      infra: string;
+      enterprise: string;
+      dev: string;
+      ai: string;
+    };
+  };
   projects: {
     heading: string;
     items: [ProjectText, ProjectText, ProjectText, ProjectText];
@@ -188,6 +198,17 @@ export const content: Record<Lang, Content> = {
           desc: "Building products like CutDock — AI video editing tooling that combines Whisper, Claude, and FFmpeg to turn raw footage into finished content.",
         },
       ],
+    },
+    techStack: {
+      heading: "Tech Stack",
+      intro:
+        "Tools I reach for across infrastructure, enterprise systems, everyday development, and AI-assisted workflows.",
+      categories: {
+        infra: "Infrastructure & DevOps",
+        enterprise: "Enterprise & Databases",
+        dev: "Development & Scripting",
+        ai: "AI & Machine Learning",
+      },
     },
     projects: {
       heading: "Project",
@@ -327,6 +348,17 @@ export const content: Record<Lang, Content> = {
           desc: "พัฒนาผลิตภัณฑ์อย่าง CutDock เครื่องมือตัดต่อวิดีโอด้วย AI ที่รวม Whisper, Claude และ FFmpeg เพื่อเปลี่ยนฟุตเทจดิบให้เป็นคอนเทนต์ที่พร้อมเผยแพร่",
         },
       ],
+    },
+    techStack: {
+      heading: "เครื่องมือที่ใช้งาน",
+      intro:
+        "เครื่องมือที่ผมใช้ทั้งฝั่ง Infrastructure ระบบ Enterprise งานพัฒนาในชีวิตประจำวัน และเวิร์กโฟลว์ที่ใช้ AI ช่วยทำงาน",
+      categories: {
+        infra: "โครงสร้างพื้นฐาน & DevOps",
+        enterprise: "ระบบ Enterprise & ฐานข้อมูล",
+        dev: "การพัฒนา & Scripting",
+        ai: "AI & Machine Learning",
+      },
     },
     projects: {
       heading: "โปรเจกต์",

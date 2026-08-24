@@ -4,6 +4,7 @@ import { AboutSection } from './components/sections/AboutSection';
 import { ExperienceSection } from './components/sections/ExperienceSection';
 import { FocusSection } from './components/sections/FocusSection';
 import { ServicesSection } from './components/sections/ServicesSection';
+import { TechStackSection } from './components/sections/TechStackSection';
 import { ProjectsSection } from './components/sections/ProjectsSection';
 import { FooterSection } from './components/sections/FooterSection';
 import { ThemeToggle } from './components/ThemeToggle';
@@ -22,6 +23,7 @@ function App() {
         <ExperienceSection />
         <FocusSection />
         <ServicesSection />
+        <TechStackSection />
         <ProjectsSection />
         <FooterSection />
       </main>
