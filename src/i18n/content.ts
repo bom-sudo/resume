@@ -161,18 +161,6 @@ export const content: Record<Lang, Content> = {
       tickerItems: ["Data Center Optimization", "SAP Basis", "Kubernetes"],
       entries: [
         {
-          title: "01 · HWK",
-          description:
-            "Before I even knew the word \"Infrastructure\", I was that kid who loved taking apart every toy I could get my hands on and trying (sometimes failing) to put it back together. The Science-Math program gave me the space for this kind of curiosity and turned \"why does this work like this\" into a lifelong habit.",
-          highlights: ["Science-Math", "Dismantling (and breaking) toys", "Curiosity"],
-        },
-        {
-          title: "02 · UBU",
-          description:
-            "Four years in Computer Science shifted me from breaking toys to breaking code. The curiosity remained, but the systems got much bigger. Between Data Structures classes and Networking labs, the word \"Infrastructure\" stopped being just a cool buzzword and became a real career path.",
-          highlights: ["B.Sc. Computer Science", "Ubon Ratchathani University", "Networking Labs"],
-        },
-        {
           title: "Tester and Game Specialist",
           description:
             "Where it all began. Testing games and supporting hardware taught me to read a system by its symptoms — a crash log, a lag spike, a support ticket — long before I knew the word 'infrastructure.' That hands-on, break-it-then-fix-it mindset still shapes how I approach every outage today.",
@@ -340,18 +328,6 @@ export const content: Record<Lang, Content> = {
         "จากการทดสอบระบบเกม สู่การดูแลซอฟต์แวร์ระดับองค์กร และตอนนี้คือการสร้างและดูแลโครงสร้างพื้นฐานที่สำคัญให้กับองค์กรรัฐวิสาหกิจระดับประเทศ",
       tickerItems: ["Data Center Optimization", "SAP Basis", "Kubernetes"],
       entries: [
-        {
-          title: "01 · HWK",
-          description:
-            "ก่อนจะรู้จักคำว่า \"Infrastructure\" ผมคือเด็กที่ชอบแกะของเล่นทุกอย่างที่จับได้ แล้วก็พยายาม (บางทีก็ล้มเหลว) ประกอบมันกลับคืน แผนการเรียนวิทย์-คณิตให้พื้นที่กับความอยากรู้แบบนี้ และทำให้การตั้งคำถามว่า \"ทำไมมันถึงทำงานแบบนี้\" กลายเป็นนิสัยติดตัวไปเลย",
-          highlights: ["สายวิทย์-คณิต", "แกะ (และพัง) ของเล่น", "โรงเรียนห้วยทับทันวิทยาคม"],
-        },
-        {
-          title: "02 · UBU",
-          description:
-            "สี่ปีในสาขาวิทยาการคอมพิวเตอร์ เปลี่ยนจากแกะของเล่นพังมาเป็นแกะโค้ดพัง ความอยากรู้เหมือนเดิม แต่ระบบใหญ่ขึ้นเยอะ ระหว่างวิชาโครงสร้างข้อมูลกับแล็บเน็ตเวิร์ก คำว่า \"Infrastructure\" ก็เริ่มไม่ใช่แค่ศัพท์เท่ ๆ แต่กลายเป็นเส้นทางอาชีพจริง ๆ",
-          highlights: ["วท.บ. วิทยาการคอมพิวเตอร์", "มหาวิทยาลัยอุบลราชธานี", "วิทยาการคอมพิวเตอร์"],
-        },
         {
           title: "Tester และ Game Specialist",
           description:
