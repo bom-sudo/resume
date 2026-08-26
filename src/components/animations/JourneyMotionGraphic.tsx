@@ -1,20 +1,49 @@
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { journey } from '../../data/profile';
 import { useLanguage } from '../../context/LanguageContext';
 
-const NODE_POSITIONS = [
-  { cx: 72, cy: 72 },
-  { cx: 200, cy: 168 },
-  { cx: 88, cy: 268 },
-];
+const VIEW_WIDTH = 280;
+const VIEW_HEIGHT = 340;
+const TOP_MARGIN = 55;
+const BOTTOM_MARGIN = 55;
+const LEFT_X = 80;
+const RIGHT_X = 200;
+const LABEL_GAP = 32;
+const LABEL_WIDTH = 118;
+const LABEL_HEIGHT = 100;
 
-const PATH_D =
-  'M 72 72 C 140 72 180 110 200 168 C 220 226 160 250 88 268';
+interface NodePosition {
+  cx: number;
+  cy: number;
+}
+
+function getNodePositions(count: number): NodePosition[] {
+  const spacing = count > 1 ? (VIEW_HEIGHT - TOP_MARGIN - BOTTOM_MARGIN) / (count - 1) : 0;
+  return Array.from({ length: count }, (_, i) => ({
+    cx: i % 2 === 0 ? LEFT_X : RIGHT_X,
+    cy: TOP_MARGIN + spacing * i,
+  }));
+}
+
+function buildPathD(positions: NodePosition[]): string {
+  if (positions.length === 0) return '';
+  const [first, ...rest] = positions;
+  let d = `M ${first.cx} ${first.cy}`;
+  let prev = first;
+  for (const point of rest) {
+    const midY = (prev.cy + point.cy) / 2;
+    d += ` C ${prev.cx} ${midY} ${point.cx} ${midY} ${point.cx} ${point.cy}`;
+    prev = point;
+  }
+  return d;
+}
 
 export const JourneyMotionGraphic: React.FC = () => {
   const { t } = useLanguage();
   const steps = journey.map((step, i) => ({ ...step, title: t.journey.entries[i].title }));
+  const nodePositions = useMemo(() => getNodePositions(journey.length), []);
+  const pathD = useMemo(() => buildPathD(nodePositions), [nodePositions]);
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -26,7 +55,11 @@ export const JourneyMotionGraphic: React.FC = () => {
   const offsetDistance = useTransform(progress, (v) => `${v * 100}%`);
 
   return (
-    <div ref={ref} className="relative w-full max-w-[320px] aspect-square mx-auto lg:mx-0 mb-10">
+    <div
+      ref={ref}
+      className="relative w-full max-w-[320px] mx-auto lg:mx-0 mb-10"
+      style={{ aspectRatio: `${VIEW_WIDTH} / ${VIEW_HEIGHT}` }}
+    >
       <motion.div
         className="absolute inset-0 overflow-visible"
         initial={{ opacity: 0, scale: 0.92 }}
@@ -47,7 +80,7 @@ export const JourneyMotionGraphic: React.FC = () => {
         />
 
         <svg
-          viewBox="0 0 280 340"
+          viewBox={`0 0 ${VIEW_WIDTH} ${VIEW_HEIGHT}`}
           className="absolute inset-0 w-full h-full"
           fill="none"
           aria-hidden
@@ -68,14 +101,14 @@ export const JourneyMotionGraphic: React.FC = () => {
           </defs>
 
           <motion.path
-            d={PATH_D}
+            d={pathD}
             className="stroke-border-primary"
             strokeWidth="2"
             strokeLinecap="round"
           />
 
           <motion.path
-            d={PATH_D}
+            d={pathD}
             stroke="url(#journeyPathGrad)"
             strokeWidth="2.5"
             strokeLinecap="round"
@@ -83,13 +116,13 @@ export const JourneyMotionGraphic: React.FC = () => {
             style={{ pathLength: progress }}
           />
 
-          {[0, 1, 2].map((i) => (
+          {journey.map((step, i) => (
             <motion.circle
-              key={`pulse-${i}`}
+              key={`pulse-${step.company}`}
               r="38"
-              cx={NODE_POSITIONS[i].cx}
-              cy={NODE_POSITIONS[i].cy}
-              fill={journey[i].accent}
+              cx={nodePositions[i].cx}
+              cy={nodePositions[i].cy}
+              fill={step.accent}
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 0.12, 0] }}
               transition={{
@@ -104,8 +137,8 @@ export const JourneyMotionGraphic: React.FC = () => {
           {journey.map((step, i) => (
             <g key={step.company}>
               <motion.circle
-                cx={NODE_POSITIONS[i].cx}
-                cy={NODE_POSITIONS[i].cy}
+                cx={nodePositions[i].cx}
+                cy={nodePositions[i].cy}
                 r="22"
                 fill={step.accent}
                 filter="url(#journeyGlow)"
@@ -115,8 +148,8 @@ export const JourneyMotionGraphic: React.FC = () => {
                 transition={{ delay: 0.3 + i * 0.2, type: 'spring', stiffness: 200 }}
               />
               <foreignObject
-                x={NODE_POSITIONS[i].cx - 20}
-                y={NODE_POSITIONS[i].cy - 20}
+                x={nodePositions[i].cx - 20}
+                y={nodePositions[i].cy - 20}
                 width="40"
                 height="40"
               >
@@ -133,44 +166,54 @@ export const JourneyMotionGraphic: React.FC = () => {
             </g>
           ))}
 
+          {steps.map((step, i) => {
+            const { cx, cy } = nodePositions[i];
+            const isLeft = cx <= VIEW_WIDTH / 2;
+            const x = isLeft ? cx + LABEL_GAP : cx - LABEL_GAP - LABEL_WIDTH;
+            const y = cy - LABEL_HEIGHT / 2;
+
+            return (
+              <foreignObject
+                key={step.company}
+                x={x}
+                y={y}
+                width={LABEL_WIDTH}
+                height={LABEL_HEIGHT}
+                style={{ overflow: 'visible' }}
+              >
+                <motion.div
+                  className={`flex flex-col pointer-events-none ${
+                    isLeft ? 'items-start text-left' : 'items-end text-right'
+                  }`}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 + i * 0.15, duration: 0.6 }}
+                >
+                  <span
+                    className="text-[10px] font-bold uppercase tracking-[0.2em] mb-0.5"
+                    style={{ color: step.accent }}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-text-primary text-xs font-semibold leading-tight">
+                    {step.title}
+                  </span>
+                  <span className="text-text-muted text-[10px] uppercase tracking-widest mt-0.5 opacity-60">
+                    {step.company}
+                  </span>
+                </motion.div>
+              </foreignObject>
+            );
+          })}
+
           <motion.circle
             r="5"
             className="fill-text-primary"
             filter="url(#journeyGlow)"
-            style={{ offsetPath: `path('${PATH_D}')`, offsetDistance }}
+            style={{ offsetPath: `path('${pathD}')`, offsetDistance }}
           />
         </svg>
-
-        {steps.map((step, i) => {
-          const align = i === 1 ? 'items-center text-center' : 'items-start';
-          const left = i === 1 ? 'left-1/2 -translate-x-1/2' : i === 0 ? 'left-2' : 'left-4';
-          const top =
-            i === 0 ? 'top-2' : i === 1 ? 'top-[42%]' : 'bottom-6';
-
-          return (
-            <motion.div
-              key={step.company}
-              className={`absolute ${left} ${top} flex flex-col ${align} pointer-events-none`}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 + i * 0.15, duration: 0.6 }}
-            >
-              <span
-                className="text-[10px] font-bold uppercase tracking-[0.2em] mb-0.5"
-                style={{ color: step.accent }}
-              >
-                0{i + 1}
-              </span>
-              <span className="text-text-primary text-xs font-semibold leading-tight max-w-[90px]">
-                {step.title}
-              </span>
-              <span className="text-text-muted text-[10px] uppercase tracking-widest mt-0.5 opacity-60">
-                {step.company}
-              </span>
-            </motion.div>
-          );
-        })}
 
         <motion.div
           className="absolute bottom-4 right-4 flex items-center gap-2"

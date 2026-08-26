@@ -32,3 +32,20 @@ export const journey = [
     accent: "#45b7d1",
   },
 ];
+
+export const education = [
+  {
+    school: "HWK",
+    fullSchool: "Huai Thap Than Witthayakhom School",
+    iconSrc: "/assets/images/hwk-removebg-preview.png",
+    href: "#",
+    accent: "#f7b731",
+  },
+  {
+    school: "UBU",
+    fullSchool: "Ubon Ratchathani University — Faculty of Science",
+    iconSrc: "/assets/images/Ubon_Ratchathani_Univ_Emblem.svg",
+    href: "#",
+    accent: "#20bf6b",
+  },
+];

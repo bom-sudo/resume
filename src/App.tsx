@@ -1,6 +1,7 @@
 import { HeroSection } from './components/sections/HeroSection';
 import { MarqueeSection } from './components/sections/MarqueeSection';
 import { AboutSection } from './components/sections/AboutSection';
+import { EducationSection } from './components/sections/EducationSection';
 import { ExperienceSection } from './components/sections/ExperienceSection';
 import { FocusSection } from './components/sections/FocusSection';
 import { ServicesSection } from './components/sections/ServicesSection';
@@ -20,6 +21,7 @@ function App() {
         <HeroSection />
         <MarqueeSection />
         <AboutSection />
+        <EducationSection />
         <ExperienceSection />
         <FocusSection />
         <ServicesSection />

@@ -12,7 +12,7 @@ export const ExperienceSection: React.FC = () => {
   const entries = journey.map((exp, i) => ({ ...exp, ...t.journey.entries[i] }));
 
   return (
-    <section id="journey" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-bg-primary relative z-10">
+    <section id="experience" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-bg-primary relative z-10">
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[150px]" />
