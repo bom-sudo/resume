@@ -3,7 +3,7 @@ export type Lang = "en" | "th";
 interface JourneyEntryText {
   title: string;
   description: string;
-  highlights: [string, string, string];
+  highlights: string[];
 }
 
 interface FocusCategoryText {
@@ -55,7 +55,7 @@ export interface Content {
     heading: string;
     intro: string;
     tickerItems: [string, string, string];
-    entries: [JourneyEntryText, JourneyEntryText, JourneyEntryText];
+    entries: JourneyEntryText[];
   };
   focus: {
     heading: string;
@@ -104,10 +104,10 @@ export const content: Record<Lang, Content> = {
       livePath: "Live path",
     },
     meta: {
-      profileRole: "Infrastructure Engineer",
+      profileRole: "Infrastructure & Datacenter",
       profileLocation: "Bangkok, Thailand",
       profileCompany: "Provincial Waterworks Authority",
-      profileBackground: "Software QA → Infrastructure",
+      profileBackground: "Software QA → Infrastructure & Datacenter",
     },
     nav: {
       about: "About",
@@ -118,12 +118,12 @@ export const content: Record<Lang, Content> = {
     },
     hero: {
       heading: "Hi, I'm Bom",
-      subtitle: "Infrastructure engineer bridging robust systems & modern development",
+      subtitle: "Infrastructure & Datacenter professional bridging robust systems & modern development",
     },
     about: {
       heading: "About me",
       paragraph:
-        "I'm Natiphong — everyone just calls me Bom. My path into tech didn't start in a data center; it started testing games and troubleshooting hardware, learning to stay calm when something breaks and dig until I find out why. That instinct carried me into enterprise QA at Thailand's biggest telecom, and eventually into my current role as an Infrastructure Engineer at the Provincial Waterworks Authority, where I keep SAP Basis, Kubernetes clusters, and data center operations running for a national utility. What actually excites me is the overlap between infrastructure and software — most nights you'll find me exploring React, Next.js, or building small AI-driven automation tools just to see how far an idea can go. If it involves systems, curiosity, or a good problem worth untangling, I'm in.",
+        "I'm Natiphong — everyone just calls me Bom. My path into tech didn't start in a data center; it started testing games and troubleshooting hardware, learning to stay calm when something breaks and dig until I find out why. That instinct carried me into enterprise QA at Thailand's biggest telecom, and eventually into my current role in Infrastructure & Datacenter at the Provincial Waterworks Authority, where I keep SAP Basis, Kubernetes clusters, and data center operations running for a national utility. What actually excites me is the overlap between infrastructure and software — most nights you'll find me exploring React, Next.js, or building small AI-driven automation tools just to see how far an idea can go. If it involves systems, curiosity, or a good problem worth untangling, I'm in.",
     },
     journey: {
       heading: "Journey",
@@ -131,6 +131,18 @@ export const content: Record<Lang, Content> = {
         "From testing game systems to safeguarding enterprise software, now building and maintaining the critical infrastructure behind a national utility.",
       tickerItems: ["Data Center Optimization", "SAP Basis", "Kubernetes"],
       entries: [
+        {
+          title: "01 · HWK",
+          description:
+            "Before I even knew the word \"Infrastructure\", I was that kid who loved taking apart every toy I could get my hands on and trying (sometimes failing) to put it back together. The Science-Math program gave me the space for this kind of curiosity and turned \"why does this work like this\" into a lifelong habit.",
+          highlights: ["Science-Math", "Dismantling (and breaking) toys", "Curiosity"],
+        },
+        {
+          title: "02 · UBU",
+          description:
+            "Four years in Computer Science shifted me from breaking toys to breaking code. The curiosity remained, but the systems got much bigger. Between Data Structures classes and Networking labs, the word \"Infrastructure\" stopped being just a cool buzzword and became a real career path.",
+          highlights: ["B.Sc. Computer Science", "Ubon Ratchathani University", "Networking Labs"],
+        },
         {
           title: "Tester and Game Specialist",
           description:
@@ -144,7 +156,7 @@ export const content: Record<Lang, Content> = {
           highlights: ["Test Automation", "Enterprise QA", "Release Validation"],
         },
         {
-          title: "Infrastructure Engineer",
+          title: "Infrastructure & Datacenter",
           description:
             "Now I keep the backbone running — SAP Basis, Kubernetes clusters, and data center operations for a national utility serving millions of households. Most days are a mix of optimizing what's already there and quietly automating away the parts that used to eat a whole afternoon.",
           highlights: ["SAP Basis", "Kubernetes", "Data Center Ops"],
@@ -254,10 +266,10 @@ export const content: Record<Lang, Content> = {
       livePath: "เส้นทางล่าสุด",
     },
     meta: {
-      profileRole: "วิศวกรโครงสร้างพื้นฐาน",
-      profileLocation: "กรุงเทพมหานคร ประเทศไทย",
+      profileRole: "Infrastructure & Datacenter",
+      profileLocation: "กรุงเทพมหานคร, ประเทศไทย",
       profileCompany: "การประปาส่วนภูมิภาค",
-      profileBackground: "จาก Software QA สู่งาน Infrastructure",
+      profileBackground: "จาก Software QA สู่งาน Infrastructure & Datacenter",
     },
     nav: {
       about: "เกี่ยวกับ",
@@ -267,37 +279,49 @@ export const content: Record<Lang, Content> = {
       contact: "ติดต่อ",
     },
     hero: {
-      heading: "สวัสดี ผม บอม",
-      subtitle: "วิศวกรโครงสร้างพื้นฐาน ผู้เชื่อมโยงระบบที่แข็งแกร่งเข้ากับการพัฒนาซอฟต์แวร์ยุคใหม่",
+      heading: "สวัสดี ผม 'บอม'",
+      subtitle: "วิศวกร Infrastructure & Datacenter ผู้เชื่อมต่อระบบที่แข็งแกร่งเข้ากับการพัฒนาซอฟต์แวร์ยุคใหม่",
     },
     about: {
       heading: "เกี่ยวกับฉัน",
       paragraph:
-        "ผมชื่อเนติพงษ์ แต่ทุกคนเรียกผมว่า \"บอม\" เส้นทางสายเทคโนโลยีของผมไม่ได้เริ่มต้นในศูนย์ข้อมูล แต่เริ่มจากการทดสอบเกมและแก้ปัญหาฮาร์ดแวร์ ที่สอนให้ผมใจเย็นเมื่อระบบมีปัญหา และไม่ยอมหยุดจนกว่าจะเจอสาเหตุที่แท้จริง สัญชาตญาณนั้นพาผมเข้าสู่งาน QA ระดับองค์กรที่บริษัทโทรคมนาคมที่ใหญ่ที่สุดของไทย และในที่สุดก็มาถึงบทบาทปัจจุบันในตำแหน่งวิศวกรโครงสร้างพื้นฐานที่การประปาส่วนภูมิภาค ซึ่งผมดูแล SAP Basis, Kubernetes clusters และงานศูนย์ข้อมูลให้กับองค์กรรัฐวิสาหกิจระดับประเทศ สิ่งที่ทำให้ผมสนุกจริง ๆ คือจุดที่ Infrastructure กับ Software มาบรรจบกัน หลายคืนคุณจะเจอผมกำลังศึกษา React, Next.js หรือลงมือสร้างเครื่องมือ Automation เล็ก ๆ ด้วย AI เพียงเพื่ออยากรู้ว่าไอเดียนั้นจะไปได้ไกลแค่ไหน ถ้าเรื่องนั้นเกี่ยวกับระบบ ความอยากรู้อยากเห็น หรือปัญหาที่น่าคลี่คลาย ผมพร้อมลงมือเสมอ",
+        "ผมชื่อเนติพงษ์ แต่ทุกคนเรียกผมว่า 'บอม' เส้นทางสายเทคโนโลยีของผมไม่ได้เริ่มต้นที่ Data Center แต่เริ่มจากการเทสต์เกมและซ่อมฮาร์ดแวร์ ซึ่งสอนให้ผมใจเย็นเมื่อระบบล่ม และไม่ยอมแพ้จนกว่าจะเจอต้นตอของปัญหา สัญชาตญาณนั้นพาผมเข้าสู่งาน QA ระดับองค์กรในบริษัทโทรคมนาคมที่ใหญ่ที่สุดของไทย และพาผมมาสู่บทบาทปัจจุบันในสายงาน Infrastructure & Datacenter ที่การประปาส่วนภูมิภาค ที่นี่ผมดูแลทั้ง SAP Basis, Kubernetes clusters และ Data Center ให้กับองค์กรรัฐวิสาหกิจระดับประเทศ สิ่งที่ผมสนุกกับมันจริง ๆ คือจุดตัดระหว่าง Infrastructure กับ Software ในหลาย ๆ คืน คุณอาจจะเห็นผมกำลังนั่งเขียน React, Next.js หรือสร้างเครื่องมือ Automation เล็ก ๆ ด้วย AI แค่เพราะอยากรู้ว่าไอเดียพวกนั้นจะไปได้ไกลแค่ไหน ถ้าเป็นเรื่องของระบบ ความท้าทาย หรือปัญหาที่รอการแก้ ผมพร้อมลุยเสมอ",
     },
     journey: {
       heading: "เส้นทาง",
       intro:
         "จากการทดสอบระบบเกม สู่การดูแลซอฟต์แวร์ระดับองค์กร และตอนนี้คือการสร้างและดูแลโครงสร้างพื้นฐานที่สำคัญให้กับองค์กรรัฐวิสาหกิจระดับประเทศ",
-      tickerItems: ["การปรับปรุงศูนย์ข้อมูล", "SAP Basis", "Kubernetes"],
+      tickerItems: ["Data Center Optimization", "SAP Basis", "Kubernetes"],
       entries: [
         {
-          title: "ผู้ทดสอบเกมและระบบ",
+          title: "01 · HWK",
           description:
-            "จุดเริ่มต้นของทุกอย่าง การทดสอบเกมและซัพพอร์ตฮาร์ดแวร์สอนให้ผมอ่านปัญหาของระบบผ่านอาการที่มันแสดงออก ไม่ว่าจะเป็น crash log อาการหน่วง หรือตั๋วซัพพอร์ตจากผู้ใช้ ตั้งแต่ก่อนที่ผมจะรู้จักคำว่า \"Infrastructure\" เสียอีก แนวคิดแบบลงมือทำ พังแล้วซ่อมนี้ยังเป็นวิธีที่ผมใช้รับมือกับทุกเหตุการณ์ขัดข้องจนถึงทุกวันนี้",
-          highlights: ["งานซัพพอร์ตด้านเทคนิค", "การวิเคราะห์ระบบ", "งานบริการลูกค้า"],
+            "ก่อนจะรู้จักคำว่า \"Infrastructure\" ผมคือเด็กที่ชอบแกะของเล่นทุกอย่างที่จับได้ แล้วก็พยายาม (บางทีก็ล้มเหลว) ประกอบมันกลับคืน แผนการเรียนวิทย์-คณิตให้พื้นที่กับความอยากรู้แบบนี้ และทำให้การตั้งคำถามว่า \"ทำไมมันถึงทำงานแบบนี้\" กลายเป็นนิสัยติดตัวไปเลย",
+          highlights: ["สายวิทย์-คณิต", "แกะ (และพัง) ของเล่น", "โรงเรียนห้วยทับทันวิทยาคม"],
         },
         {
-          title: "ผู้ทดสอบซอฟต์แวร์",
+          title: "02 · UBU",
           description:
-            "ก้าวสู่การทดสอบซอฟต์แวร์ระดับองค์กรที่บริษัทโทรคมนาคมอันดับหนึ่งของไทย ทดสอบระบบที่คนนับล้านใช้งานทุกวัน ช่วงนี้เองที่ผมเริ่มมองว่า Automation ไม่ใช่แค่ตัวช่วย แต่เป็นวิธีเดียวที่จะตามงานทัน และเป็นจุดที่ผมเริ่มคิดแบบวิศวกรฝั่ง Production มากกว่าฝั่ง QA",
-          highlights: ["ทดสอบอัตโนมัติ", "QA ระดับองค์กร", "ตรวจสอบก่อนปล่อยระบบ"],
+            "สี่ปีในสาขาวิทยาการคอมพิวเตอร์ เปลี่ยนจากแกะของเล่นพังมาเป็นแกะโค้ดพัง ความอยากรู้เหมือนเดิม แต่ระบบใหญ่ขึ้นเยอะ ระหว่างวิชาโครงสร้างข้อมูลกับแล็บเน็ตเวิร์ก คำว่า \"Infrastructure\" ก็เริ่มไม่ใช่แค่ศัพท์เท่ ๆ แต่กลายเป็นเส้นทางอาชีพจริง ๆ",
+          highlights: ["วท.บ. วิทยาการคอมพิวเตอร์", "มหาวิทยาลัยอุบลราชธานี", "วิทยาการคอมพิวเตอร์"],
         },
         {
-          title: "วิศวกรโครงสร้างพื้นฐาน",
+          title: "Tester และ Game Specialist",
           description:
-            "ปัจจุบันดูแล SAP Basis, Kubernetes clusters และโครงสร้างพื้นฐานศูนย์ข้อมูลให้กับองค์กรรัฐวิสาหกิจที่ให้บริการครัวเรือนนับล้านทั่วประเทศ งานส่วนใหญ่คือการปรับปรุงระบบที่มีอยู่ให้ดีขึ้น พร้อมกับหาทาง Automate งานที่เคยกินเวลาไปครึ่งวันให้เหลือไม่กี่นาที",
-          highlights: ["SAP Basis", "Kubernetes", "งานศูนย์ข้อมูล"],
+            "จุดเริ่มต้นของทุกอย่าง การเทสต์เกมและซัพพอร์ตฮาร์ดแวร์สอนให้ผมวิเคราะห์ปัญหาระบบจากอาการที่มันแสดงออก ไม่ว่าจะเป็น crash log, อาการหน่วง หรือทิกเก็ตจากผู้ใช้ ตั้งแต่ก่อนที่ผมจะรู้จักคำว่า 'Infrastructure' เสียอีก แนวคิดแบบลงมือทำ พังแล้วซ่อมนี้ ยังคงเป็นวิธีที่ผมใช้รับมือกับทุกเหตุการณ์ขัดข้องจนถึงทุกวันนี้",
+          highlights: ["Technical Support", "System Diagnostics", "Customer-Facing Ops"],
+        },
+        {
+          title: "Software Tester",
+          description:
+            "ก้าวสู่การเทสต์ซอฟต์แวร์ระดับองค์กรที่บริษัทโทรคมนาคมอันดับหนึ่งของไทย ทดสอบระบบที่คนนับล้านใช้งานทุกวัน ช่วงนี้เองที่ผมเริ่มมองว่า Automation ไม่ใช่แค่ตัวเลือก แต่เป็นวิธีเดียวที่จะทำงานให้ทัน และเป็นจุดที่ผมเริ่มคิดแบบวิศวกรฝั่ง Production มากกว่าแค่ QA",
+          highlights: ["Test Automation", "Enterprise QA", "Release Validation"],
+        },
+        {
+          title: "Infrastructure & Datacenter",
+          description:
+            "ปัจจุบันผมดูแลระบบเบื้องหลังที่สำคัญ ทั้ง SAP Basis, Kubernetes clusters และ Data Center ให้กับองค์กรรัฐวิสาหกิจที่ให้บริการคนนับล้าน งานส่วนใหญ่คือการปรับปรุงระบบที่มีอยู่ให้มีประสิทธิภาพสูงสุด พร้อมกับหาวิธี Automate งานที่เคยกินเวลาครึ่งวันให้เสร็จได้ในไม่กี่นาที",
+          highlights: ["SAP Basis", "Kubernetes", "Data Center Ops"],
         },
       ],
     },
@@ -341,18 +365,18 @@ export const content: Record<Lang, Content> = {
         },
         {
           name: "Infrastructure Security",
-          desc: "แม็ปมาตรฐาน ISO/IEC 27001 เข้ากับ Infrastructure จริง ปิดช่องว่างด้าน Forensic และ Compliance ทั้งบน Cloud และ On-prem",
+          desc: "แม็ปมาตรฐาน ISO/IEC 27001 เข้ากับระบบจริง ปิดช่องว่างด้าน Forensic และ Compliance ทั้งบน Cloud และ On-premise",
         },
         {
           name: "AI-Powered Content Tools",
-          desc: "พัฒนาผลิตภัณฑ์อย่าง CutDock เครื่องมือตัดต่อวิดีโอด้วย AI ที่รวม Whisper, Claude และ FFmpeg เพื่อเปลี่ยนฟุตเทจดิบให้เป็นคอนเทนต์ที่พร้อมเผยแพร่",
+          desc: "พัฒนาผลิตภัณฑ์อย่าง CutDock เครื่องมือตัดต่อวิดีโอด้วย AI ที่รวม Whisper, Claude และ FFmpeg เพื่อเปลี่ยนฟุตเทจดิบให้เป็นคอนเทนต์ที่พร้อมใช้งาน",
         },
       ],
     },
     techStack: {
       heading: "เครื่องมือที่ใช้งาน",
       intro:
-        "เครื่องมือที่ผมใช้ทั้งฝั่ง Infrastructure ระบบ Enterprise งานพัฒนาในชีวิตประจำวัน และเวิร์กโฟลว์ที่ใช้ AI ช่วยทำงาน",
+        "เครื่องมือที่ผมเลือกใช้ครอบคลุมตั้งแต่งาน Infrastructure, ระบบ Enterprise, การพัฒนาซอฟต์แวร์ ไปจนถึงเวิร์กโฟลว์ AI",
       categories: {
         infra: "โครงสร้างพื้นฐาน & DevOps",
         enterprise: "ระบบ Enterprise & ฐานข้อมูล",
@@ -393,7 +417,7 @@ export const content: Record<Lang, Content> = {
       askMeAbout: ["Infrastructure", "SAP Basis", "Kubernetes", "ทดสอบอัตโนมัติ", "แนวทาง DevOps ที่ดี"],
       tagline:
         "เชื่อมโยงช่องว่างระหว่างโครงสร้างพื้นฐานที่แข็งแกร่งกับการพัฒนาซอฟต์แวร์ยุคใหม่ เปิดรับโอกาสร่วมงาน เรียนรู้ และสร้างสิ่งดี ๆ ไปด้วยกัน",
-      builtWith: "ออกแบบและสร้างด้วยความตั้งใจ",
+      builtWith: "ออกแบบและพัฒนาด้วยความตั้งใจ",
     },
   },
 };
