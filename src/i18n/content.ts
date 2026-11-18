@@ -129,27 +129,27 @@ export const content: Record<Lang, Content> = {
     },
     hero: {
       heading: "Hi, I'm Bom",
-      subtitle: "Infrastructure & Datacenter professional bridging robust systems & modern development",
+      subtitle: "Infrastructure & Datacenter professional working across systems and software development",
     },
     about: {
       heading: "About me",
       paragraph:
-        "I'm Natiphong — everyone just calls me Bom. My path into tech didn't start in a data center; it started testing games and troubleshooting hardware, learning to stay calm when something breaks and dig until I find out why. That instinct carried me into enterprise QA at Thailand's biggest telecom, and eventually into my current role in Infrastructure & Datacenter at the Provincial Waterworks Authority, where I keep SAP Basis, Kubernetes clusters, and data center operations running for a national utility. What actually excites me is the overlap between infrastructure and software — most nights you'll find me exploring React, Next.js, or building small AI-driven automation tools just to see how far an idea can go. If it involves systems, curiosity, or a good problem worth untangling, I'm in.",
+        "I'm Natiphong, but everyone calls me Bom. My path into tech didn't start in a data center; it started testing games and troubleshooting hardware, learning to stay calm when something breaks and dig until I find out why. That instinct carried me into enterprise QA at Thailand's biggest telecom, and eventually into my current role in Infrastructure & Datacenter at the Provincial Waterworks Authority, where I keep SAP Basis, Kubernetes clusters, and data center operations running for a national utility. I'm most interested in where infrastructure meets software. Most nights you'll find me exploring React, Next.js, or building small AI-driven automation tools just to see how far an idea can go. If it involves systems, curiosity, or a good problem worth untangling, I'm in.",
     },
     education: {
       heading: "Education",
-      intro: "The foundation before the field — where the curiosity for systems first took shape.",
+      intro: "Where my curiosity about systems started.",
       entries: [
         {
           degree: "Science-Math Program, Huai Thap Than Witthayakhom School",
           description:
-            "Long before 'infrastructure' was even in my vocabulary, I was the kid taking apart every gadget I could get my hands on — usually followed by trying (and sometimes failing) to put it back together. The Science-Math track gave that curiosity a home, and turned 'why does this work?' into an actual habit.",
+            "Long before 'infrastructure' was even in my vocabulary, I was the kid taking apart every gadget I could get my hands on, then trying (and sometimes failing) to put it back together. The Science-Math track gave that curiosity a home, and turned 'why does this work?' into an actual habit.",
           highlights: ["Science-Math Track", "Built (and broke) things"],
         },
         {
           degree: "B.Sc. Computer Science, Ubon Ratchathani University",
           description:
-            "Four years of Computer Science later, I'd traded broken gadgets for broken code — same curiosity, bigger systems. Somewhere between data structures and networking labs, 'infrastructure' stopped sounding like a buzzword and started sounding like a career.",
+            "Four years of Computer Science later, I'd traded broken gadgets for broken code. Same curiosity, bigger systems. Somewhere between data structures and networking labs, 'infrastructure' stopped sounding like a buzzword and started sounding like a career.",
           highlights: ["Computer Science", "Systems & Networks"],
         },
       ],
@@ -163,19 +163,19 @@ export const content: Record<Lang, Content> = {
         {
           title: "Tester and Game Specialist",
           description:
-            "Where it all began. Testing games and supporting hardware taught me to read a system by its symptoms — a crash log, a lag spike, a support ticket — long before I knew the word 'infrastructure.' That hands-on, break-it-then-fix-it mindset still shapes how I approach every outage today.",
+            "Testing games and supporting hardware taught me to read a system by its symptoms: a crash log, a lag spike, a support ticket. I learned that long before I knew the word 'infrastructure.' That hands-on, break-it-then-fix-it mindset still shapes how I approach every outage today.",
           highlights: ["Technical Support", "System Diagnostics", "Customer-Facing Ops"],
         },
         {
           title: "Software Tester",
           description:
-            "Stepped up to enterprise scale at Thailand's largest telecom, testing systems that millions of people rely on every day. This is where automation stopped being a nice-to-have and became the only way to keep pace — and where I started thinking like the engineers on the other side of every bug report.",
+            "Stepped up to enterprise scale at Thailand's largest telecom, testing systems that millions of people rely on every day. Automation stopped being a nice-to-have and became the only way to keep pace, and I started thinking like the engineers on the other side of every bug report.",
           highlights: ["Test Automation", "Enterprise QA", "Release Validation"],
         },
         {
           title: "Infrastructure & Datacenter",
           description:
-            "Now I keep the backbone running — SAP Basis, Kubernetes clusters, and data center operations for a national utility serving millions of households. Most days are a mix of optimizing what's already there and quietly automating away the parts that used to eat a whole afternoon.",
+            "I now run SAP Basis, Kubernetes clusters, and data center operations for a national utility serving millions of households. Most days I optimize what's already there and automate the parts that used to eat a whole afternoon.",
           highlights: ["SAP Basis", "Kubernetes", "Data Center Ops"],
         },
       ],
@@ -183,7 +183,7 @@ export const content: Record<Lang, Content> = {
     focus: {
       heading: "2026 Focus",
       intro:
-        "Currently digging into React.js, Next.js, and advanced Kubernetes patterns — pushing toward full-stack capability while deepening infrastructure expertise.",
+        "Currently digging into React.js, Next.js, and advanced Kubernetes patterns, pushing toward full-stack capability while deepening infrastructure expertise.",
       categories: [
         { label: "Infrastructure", eyebrow: "Cloud / K8s / Security" },
         { label: "Development", eyebrow: "React / Next.js / OSS" },
@@ -224,7 +224,7 @@ export const content: Record<Lang, Content> = {
         },
         {
           name: "AI-Powered Content Tools",
-          desc: "Building products like CutDock — AI video editing tooling that combines Whisper, Claude, and FFmpeg to turn raw footage into finished content.",
+          desc: "Building products like CutDock, an AI video editing tool that combines Whisper, Claude, and FFmpeg to turn raw footage into finished content.",
         },
       ],
     },
@@ -271,8 +271,8 @@ export const content: Record<Lang, Content> = {
       askMeAboutLabel: "Ask me about",
       askMeAbout: ["Infrastructure", "SAP Basis", "Kubernetes", "Testing Automation", "DevOps Best Practices"],
       tagline:
-        "Bridging the gap between robust infrastructure and modern software development. Open to collaboration, learning, and building something amazing together.",
-      builtWith: "Designed & Built with Passion",
+        "I work across infrastructure and modern software development. Open to collaboration.",
+      builtWith: "Designed & built by Bom",
     },
   },
   th: {

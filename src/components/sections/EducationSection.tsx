@@ -13,7 +13,7 @@ export const EducationSection: React.FC = () => {
       <div className="max-w-5xl mx-auto">
         <FadeIn delay={0} y={30}>
           <h2
-            className="font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-text-primary via-text-primary to-text-primary/20 text-center mb-4"
+            className="font-black uppercase tracking-tight text-text-primary text-center mb-4"
             style={{ fontSize: 'clamp(2.5rem, 8vw, 72px)' }}
           >
             {t.education.heading}
@@ -32,13 +32,8 @@ export const EducationSection: React.FC = () => {
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.21, 0.47, 0.32, 0.98] }}
               whileHover={{ y: -6 }}
-              className="group relative flex flex-col gap-5 rounded-[28px] bg-bg-inverse/[0.03] backdrop-blur-xl border border-border-primary p-8 sm:p-10 shadow-xl overflow-hidden transition-colors duration-500 hover:bg-bg-inverse/[0.05]"
+              className="group relative flex flex-col gap-5 rounded-[28px] bg-bg-inverse/[0.03] border border-border-primary p-8 sm:p-10 overflow-hidden transition-colors duration-500 hover:bg-bg-inverse/[0.05]"
             >
-              <motion.div
-                className="absolute -top-16 -right-16 w-40 h-40 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                style={{ backgroundColor: `${edu.accent}30` }}
-              />
-
               <div className="flex items-center gap-4 relative">
                 <motion.div
                   className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center p-2.5 shrink-0"

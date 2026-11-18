@@ -30,17 +30,10 @@ export const FocusSection: React.FC = () => {
 
   return (
     <section id="focus" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-bg-primary relative z-10 border-t border-border-primary overflow-hidden">
-      <motion.div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full blur-[120px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(182,0,168,0.12) 0%, transparent 70%)' }}
-        animate={{ opacity: [0.4, 0.7, 0.4], scale: [1, 1.1, 1] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-      />
-
       <div className="max-w-5xl mx-auto relative">
         <FadeIn delay={0} y={30}>
           <h2
-            className="font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-text-primary via-text-primary to-text-primary/20 text-center mb-4"
+            className="font-black uppercase tracking-tight text-text-primary text-center mb-4"
             style={{ fontSize: 'clamp(2.5rem, 8vw, 72px)' }}
           >
             {t.focus.heading}
@@ -54,7 +47,7 @@ export const FocusSection: React.FC = () => {
           {categories.map(({ key, label, color, image, imageAlt, eyebrow }, i) => (
             <FadeIn key={key} delay={i * 0.1}>
               <motion.div
-                className="h-full rounded-[28px] bg-bg-inverse/[0.03] backdrop-blur-xl border border-border-primary p-6 sm:p-8 hover:bg-bg-inverse/[0.05] transition-all duration-500 relative overflow-hidden group"
+                className="h-full rounded-[28px] bg-bg-inverse/[0.03] border border-border-primary p-6 sm:p-8 hover:bg-bg-inverse/[0.05] transition-all duration-500 relative overflow-hidden group"
                 whileHover={{ y: -4 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
               >

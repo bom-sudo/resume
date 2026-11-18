@@ -13,16 +13,11 @@ export const ExperienceSection: React.FC = () => {
 
   return (
     <section id="experience" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-bg-primary relative z-10">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[150px]" />
-      </div>
-
       <div className="max-w-7xl mx-auto grid lg:grid-cols-[400px_1fr] xl:grid-cols-[460px_1fr] gap-12 lg:gap-24 xl:gap-32">
         <div className="min-w-0 lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-center lg:py-32">
           <FadeIn delay={0} y={30}>
             <h2
-              className="font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-text-primary via-text-primary to-text-primary/20 mb-6"
+              className="font-black uppercase tracking-tight text-text-primary mb-6"
               style={{ fontSize: 'clamp(3rem, 8vw, 80px)' }}
             >
               {t.journey.heading}
@@ -72,13 +67,8 @@ export const ExperienceSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="group block rounded-[32px] bg-bg-inverse/[0.03] backdrop-blur-xl border border-border-primary p-6 sm:p-8 md:p-10 hover:bg-bg-inverse/[0.05] transition-all duration-500 cursor-pointer shadow-2xl overflow-hidden relative"
+              className="group block rounded-[32px] bg-bg-inverse/[0.03] border border-border-primary p-6 sm:p-8 md:p-10 hover:bg-bg-inverse/[0.05] transition-all duration-500 cursor-pointer overflow-hidden relative"
             >
-              <motion.div
-                className="absolute -top-20 -right-20 w-40 h-40 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                style={{ backgroundColor: `${exp.accent}25` }}
-              />
-
               <div className="flex items-start justify-between mb-2 relative">
                 <AnimatedStepIndex index={i} accent={exp.accent} />
                 <motion.div

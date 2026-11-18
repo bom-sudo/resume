@@ -12,16 +12,6 @@ export const FooterSection: React.FC = () => {
       <div className="absolute inset-0 journey-grid opacity-50 -z-10 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/20 to-bg-primary/50 -z-10 pointer-events-none" />
       
-      {/* Central Highlight Glow */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-15">
-        <div className="w-[800px] h-[400px] bg-bg-inverse/[0.05] rounded-full blur-[120px]" />
-      </div>
-
-      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-20">
-        <div className="absolute bottom-[-10%] left-[10%] w-[600px] h-[600px] bg-[#B600A8]/30 rounded-full blur-[140px]" />
-        <div className="absolute top-[10%] right-[5%] w-[550px] h-[550px] bg-[#4ecdc4]/30 rounded-full blur-[130px]" />
-      </div>
-
       {/* Top spacing */}
       <div />
 
@@ -61,7 +51,7 @@ export const FooterSection: React.FC = () => {
             {t.footer.askMeAbout.map((topic) => (
               <span
                 key={topic}
-                className="liquid-glass rounded-full px-5 py-2 text-text-primary text-xs uppercase tracking-wider border border-border-primary bg-bg-inverse/[0.05] hover:border-border-primary hover:bg-bg-inverse/[0.1] hover:text-text-primary transition-all duration-300 shadow-lg"
+                className="liquid-glass rounded-full px-5 py-2 text-text-primary text-xs uppercase tracking-wider border border-border-primary bg-bg-inverse/[0.05] hover:border-border-primary hover:bg-bg-inverse/[0.1] hover:text-text-primary transition-all duration-300"
               >
                 {topic}
               </span>

@@ -69,15 +69,6 @@ export const JourneyMotionGraphic: React.FC = () => {
       >
         <div className="absolute inset-0 journey-grid opacity-40" />
 
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full blur-[80px]"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(182,0,168,0.25) 0%, rgba(69,183,209,0.15) 50%, transparent 70%)',
-          }}
-          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        />
 
         <svg
           viewBox={`0 0 ${VIEW_WIDTH} ${VIEW_HEIGHT}`}

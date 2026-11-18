@@ -14,7 +14,7 @@ export const TechStackSection: React.FC = () => {
       <div className="max-w-5xl mx-auto">
         <FadeIn delay={0} y={30}>
           <h2
-            className="font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-text-primary via-text-primary to-text-primary/20 text-center mb-4"
+            className="font-black uppercase tracking-tight text-text-primary text-center mb-4"
             style={{ fontSize: 'clamp(2.5rem, 8vw, 72px)' }}
           >
             {t.techStack.heading}
