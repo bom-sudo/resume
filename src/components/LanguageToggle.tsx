@@ -7,7 +7,7 @@ export const LanguageToggle: React.FC = () => {
 
   return (
     <div
-      className="fixed z-[9999]"
+      data-cs-ignore className="fixed z-[9999]"
       style={{ position: 'fixed', bottom: '6.5rem', left: '2rem', zIndex: 9999 }}
     >
       <motion.button
