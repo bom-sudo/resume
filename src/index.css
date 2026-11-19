@@ -77,3 +77,69 @@
 :root:not([data-theme="light"]) .invert-on-dark {
   filter: invert(1) hue-rotate(180deg);
 }
+
+/* ---------- Certificate trading cards ---------- */
+.tcg-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease-out, box-shadow 0.3s ease, translate 0.3s ease;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+  will-change: transform;
+}
+.tcg-card:hover,
+.tcg-card:focus-visible {
+  translate: 0 -6px;
+  box-shadow: 0 24px 50px -14px rgba(0, 0, 0, 0.7), 0 0 36px -4px var(--glow);
+  transition: transform 0.08s linear, box-shadow 0.3s ease, translate 0.3s ease;
+}
+.tcg-card:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 4px;
+}
+.tcg-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1.4px);
+  background-size: 10px 10px;
+  mask-image: linear-gradient(to bottom, #000, transparent);
+}
+.tcg-holo,
+.tcg-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.tcg-holo {
+  background:
+    repeating-linear-gradient(
+      115deg,
+      #ff0080 0%, #ffd000 7%, #38ff9c 14%, #00c8ff 21%, #a855f7 28%, #ff0080 35%
+    );
+  background-size: 300% 300%;
+  background-position: var(--mx) var(--my);
+  mix-blend-mode: color-dodge;
+  filter: saturate(1.2);
+}
+.tcg-glare {
+  background: radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.35), transparent 50%);
+  mix-blend-mode: overlay;
+}
+.tcg-card:hover .tcg-holo { opacity: 0.28; }
+.tcg-card:hover .tcg-glare { opacity: 1; }
+.tcg-back {
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.06) 0 6px, transparent 6px 12px),
+    radial-gradient(circle at 50% 50%, #1d4ed8, #0b1d4a 70%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tcg-card, .tcg-card:hover { transform: none; translate: none; }
+}
