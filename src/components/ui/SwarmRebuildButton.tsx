@@ -15,7 +15,7 @@ type SwarmCtor = new (opts: Record<string, unknown>) => SwarmInstance & { init()
 
 const SPEEDS = [1, 2, 3];
 // จำนวนเคอร์เซอร์เริ่มต้น และช่วงที่ผู้ชมปรับเพิ่ม/ลดได้
-const DEFAULT_CURSORS = 12;
+const DEFAULT_CURSORS = 10;
 const MIN_CURSORS = 1;
 const MAX_CURSORS = 30;
 
