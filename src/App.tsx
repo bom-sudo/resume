@@ -14,6 +14,7 @@ import { LanguageToggle } from './components/LanguageToggle';
 import { SwarmRebuildButton } from './components/ui/SwarmRebuildButton';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { LanguageTransitionOverlay } from './components/animations/LanguageTransitionOverlay';
+import { Analytics } from '@vercel/analytics/react';
 
 function MainContent() {
   const { isTransitioning } = useLanguage();
@@ -46,6 +47,7 @@ function App() {
   return (
     <LanguageProvider>
       <MainContent />
+      <Analytics />
     </LanguageProvider>
   );
 }
