@@ -14,6 +14,10 @@ interface SwarmInstance {
 type SwarmCtor = new (opts: Record<string, unknown>) => SwarmInstance & { init(): SwarmInstance };
 
 const SPEEDS = [1, 2, 3];
+// จำนวนเคอร์เซอร์เริ่มต้น และช่วงที่ผู้ชมปรับเพิ่ม/ลดได้
+const DEFAULT_CURSORS = 12;
+const MIN_CURSORS = 1;
+const MAX_CURSORS = 30;
 
 const chip =
   'px-2.5 py-1 rounded-md text-xs font-medium border border-border-primary transition-colors';
@@ -24,6 +28,9 @@ export const SwarmRebuildButton: React.FC = () => {
   const [active, setActive] = useState(false);
   const [paused, setPaused] = useState(false);
   const [speed, setSpeed] = useState(1);
+  const [cursors, setCursors] = useState(DEFAULT_CURSORS);
+  const speedRef = useRef(speed);
+  speedRef.current = speed;
 
   const exit = useCallback(() => {
     swarmRef.current?.destroy();
@@ -32,21 +39,38 @@ export const SwarmRebuildButton: React.FC = () => {
     setPaused(false);
   }, []);
 
-  const start = useCallback(() => {
+  const create = useCallback((count: number) => {
     const Ctor = (window as unknown as { CursorSwarm?: SwarmCtor }).CursorSwarm;
-    if (!Ctor || swarmRef.current) return;
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    swarmRef.current = new Ctor({
-      cursors: 3,
-      speed,
-      startPosition: 'corners',
+    if (!Ctor) return null;
+    return new Ctor({
+      cursors: count,
+      speed: speedRef.current,
+      // 'corners' only has 4 slots, so a larger swarm would stack up; scatter them instead.
+      startPosition: 'random',
       palette: 'default',
       hudPosition: 'bottom-right',
       ignore: '[data-cs-ignore]',
       respectReducedMotion: false,
     }).init();
-    setActive(true);
-  }, [speed]);
+  }, []);
+
+  const start = useCallback(() => {
+    if (swarmRef.current) return;
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    swarmRef.current = create(cursors);
+    if (swarmRef.current) setActive(true);
+  }, [create, cursors]);
+
+  // CursorSwarm fixes its agent count at init(), so a new count means a fresh swarm.
+  const changeCursors = (delta: number) => {
+    const next = Math.min(MAX_CURSORS, Math.max(MIN_CURSORS, cursors + delta));
+    if (next === cursors) return;
+    setCursors(next);
+    if (!swarmRef.current) return;
+    swarmRef.current.destroy();
+    swarmRef.current = create(next);
+    setPaused(false);
+  };
 
   const changeSpeed = (n: number) => {
     setSpeed(n);
@@ -103,6 +127,28 @@ export const SwarmRebuildButton: React.FC = () => {
             {n}×
           </button>
         ))}
+      </div>
+      <div className="flex items-center gap-1">
+        <button
+          onClick={() => changeCursors(-1)}
+          disabled={cursors <= MIN_CURSORS}
+          aria-label="Fewer cursors"
+          className={`${chip} text-text-muted disabled:opacity-40`}
+        >
+          −
+        </button>
+        <span className="inline-flex items-center justify-center gap-1 min-w-[3.25rem] text-xs font-medium tabular-nums">
+          <MousePointer2 className="w-3 h-3" />
+          {cursors}
+        </span>
+        <button
+          onClick={() => changeCursors(1)}
+          disabled={cursors >= MAX_CURSORS}
+          aria-label="More cursors"
+          className={`${chip} text-text-muted disabled:opacity-40`}
+        >
+          +
+        </button>
       </div>
       <div className="flex gap-1">
         <button onClick={togglePause} className={`${chip} text-text-muted`}>
