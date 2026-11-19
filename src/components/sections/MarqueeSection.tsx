@@ -5,12 +5,12 @@ const row1Icons = [
   { name: "Kubernetes", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" },
   { name: "Python", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" },
   { name: "SAP", src: "https://cdn.worldvectorlogo.com/logos/sap-3.svg" },
-  { name: "OpenAI", src: "https://cdn.worldvectorlogo.com/logos/openai-2.svg" },
+  { name: "OpenAI", src: "https://cdn.worldvectorlogo.com/logos/openai-2.svg", invertOnDark: true },
   { name: "Docker", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" },
   { name: "Oracle", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" },
   { name: "Go", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" },
-  { name: "Copilot", src: "https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" },
-  { name: "AWS", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+  { name: "Copilot", src: "https://cdn.worldvectorlogo.com/logos/github-icon-2.svg", invertOnDark: true },
+  { name: "AWS", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg", invertOnDark: true },
   { name: "PostgreSQL", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" },
   { name: "JavaScript", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" },
   { name: "TensorFlow", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" },
@@ -28,7 +28,7 @@ const row2Icons = [
   { name: "Redis", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original-wordmark.svg" },
   { name: "HuggingFace", src: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg" },
   { name: "Nginx", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" },
-  { name: "Next.js", src: "https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" },
+  { name: "Next.js", src: "https://cdn.worldvectorlogo.com/logos/nextjs-2.svg", invertOnDark: true },
   { name: "Grafana", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" },
   { name: "Git", src: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" },
   { name: "Prometheus", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/prometheus/prometheus-original.svg" },
@@ -57,7 +57,7 @@ export const MarqueeSection: React.FC = () => {
       >
         {row1.map((icon, i) => (
           <div key={`tech-${i}`} className="flex flex-col items-center justify-center w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-bg-inverse/[0.05] border border-border-primary shadow-xl shrink-0">
-            <img src={icon.src} alt={icon.name} className="w-12 h-12 sm:w-16 sm:h-16 object-contain mb-3" />
+            <img src={icon.src} alt={icon.name} className={`w-12 h-12 sm:w-16 sm:h-16 object-contain mb-3 ${"invertOnDark" in icon && icon.invertOnDark ? "invert-on-dark" : ""}`} />
             <span className="text-text-muted/80 text-xs sm:text-sm font-medium tracking-wider uppercase">{icon.name}</span>
           </div>
         ))}
@@ -70,7 +70,7 @@ export const MarqueeSection: React.FC = () => {
       >
         {row2.map((icon, i) => (
           <div key={`ai-${i}`} className="flex flex-col items-center justify-center w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-bg-inverse/[0.05] border border-border-primary shadow-xl shrink-0">
-            <img src={icon.src} alt={icon.name} className="w-12 h-12 sm:w-16 sm:h-16 object-contain mb-3" />
+            <img src={icon.src} alt={icon.name} className={`w-12 h-12 sm:w-16 sm:h-16 object-contain mb-3 ${"invertOnDark" in icon && icon.invertOnDark ? "invert-on-dark" : ""}`} />
             <span className="text-text-muted/80 text-xs sm:text-sm font-medium tracking-wider uppercase">{icon.name}</span>
           </div>
         ))}

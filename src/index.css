@@ -72,3 +72,8 @@
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   }
 }
+
+/* Dark logos (black/navy wordmarks) disappear on the dark theme; flip lightness but keep hue. */
+:root:not([data-theme="light"]) .invert-on-dark {
+  filter: invert(1) hue-rotate(180deg);
+}
