@@ -100,6 +100,25 @@ export interface Content {
       dev: string;
       ai: string;
     };
+    featuredRepos: {
+      heading: string;
+      intro: string;
+      viewGithub: string;
+      items: [
+        {
+          title: string;
+          desc: string;
+          tag: string;
+          tags: string[];
+        },
+        {
+          title: string;
+          desc: string;
+          tag: string;
+          tags: string[];
+        }
+      ];
+    };
   };
   projects: {
     heading: string;
@@ -255,6 +274,25 @@ export const content: Record<Lang, Content> = {
         enterprise: "Enterprise & Databases",
         dev: "Development & Scripting",
         ai: "AI & Machine Learning",
+      },
+      featuredRepos: {
+        heading: "Featured Repositories",
+        intro: "Open-source tools, autonomous agent systems, and AI pipelines I've built and shared.",
+        viewGithub: "View Repository",
+        items: [
+          {
+            title: "swarm-web",
+            desc: "Autonomous multi-agent cursor swarm that rebuilds web pages piece by piece as you scroll.",
+            tag: "Agentic UI / Web",
+            tags: ["TypeScript", "Multi-Agent", "Web Animation", "Vite"],
+          },
+          {
+            title: "txt-ai-thai-ocr",
+            desc: "AI-powered Thai OCR pipeline for document text extraction, font recognition, and intelligent text parsing.",
+            tag: "AI / Thai OCR",
+            tags: ["Python", "OCR", "Thai NLP", "Computer Vision"],
+          },
+        ],
       },
     },
     projects: {
@@ -437,6 +475,25 @@ export const content: Record<Lang, Content> = {
         enterprise: "ระบบ Enterprise & ฐานข้อมูล",
         dev: "การพัฒนา & Scripting",
         ai: "AI & Machine Learning",
+      },
+      featuredRepos: {
+        heading: "คลังโค้ดที่น่าสนใจ (Featured Repos)",
+        intro: "โปรเจกต์ Open Source, เครื่องมือ AI และระบบจำลอง Agent บนเว็บที่ผมพัฒนาขึ้น",
+        viewGithub: "ดูบน GitHub",
+        items: [
+          {
+            title: "swarm-web",
+            desc: "ระบบจำลองฝูงเคอร์เซอร์ AI Multi-Agent ที่ประกอบและสร้างหน้าเว็บอัตโนมัติตามการเลื่อนหน้าจอ",
+            tag: "Agentic UI / Web",
+            tags: ["TypeScript", "Multi-Agent", "Web Animation", "Vite"],
+          },
+          {
+            title: "txt-ai-thai-ocr",
+            desc: "ระบบ AI OCR สกัดและแปลงข้อความภาษาไทยจากรูปภาพและเอกสาร พร้อมประมวลผลข้อความความแม่นยำสูง",
+            tag: "AI / Thai OCR",
+            tags: ["Python", "OCR", "Thai NLP", "Computer Vision"],
+          },
+        ],
       },
     },
     projects: {
