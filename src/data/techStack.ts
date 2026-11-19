@@ -13,7 +13,7 @@ export const techStack: Record<TechCategoryKey, TechIcon[]> = {
   infra: [
     { name: "Kubernetes", src: devicon("kubernetes/kubernetes-plain.svg"), href: "https://kubernetes.io/" },
     { name: "Docker", src: devicon("docker/docker-original-wordmark.svg"), href: "https://www.docker.com/" },
-    { name: "AWS", src: devicon("amazonwebservices/amazonwebservices-original-wordmark.svg"), href: "https://aws.amazon.com" },
+    { name: "AWS", src: devicon("amazonwebservices/amazonwebservices-original.svg"), href: "https://aws.amazon.com" },
     { name: "Terraform", src: devicon("terraform/terraform-original.svg"), href: "https://www.terraform.io/" },
     { name: "Ansible", src: devicon("ansible/ansible-original.svg"), href: "https://www.ansible.com/" },
     { name: "Linux", src: devicon("linux/linux-original.svg"), href: "https://www.linux.org/" },

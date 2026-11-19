@@ -62,6 +62,14 @@ export interface Content {
     intro: string;
     entries: [EducationEntryText, EducationEntryText];
   };
+  certificates: {
+    heading: string;
+    intro: string;
+    internalHeading: string;
+    showAll: string;
+    hide: string;
+    viewPdf: string;
+  };
   journey: {
     heading: string;
     intro: string;
@@ -153,6 +161,14 @@ export const content: Record<Lang, Content> = {
           highlights: ["Computer Science", "Systems & Networks"],
         },
       ],
+    },
+    certificates: {
+      heading: "Certificates",
+      intro: "Courses and certifications from outside organizations, plus internal training at the Provincial Waterworks Authority.",
+      internalHeading: "Internal training at PWA",
+      showAll: "Show all",
+      hide: "Hide",
+      viewPdf: "View PDF",
     },
     journey: {
       heading: "Journey",
@@ -321,6 +337,14 @@ export const content: Record<Lang, Content> = {
           highlights: ["วิทยาการคอมพิวเตอร์", "ระบบและเครือข่าย"],
         },
       ],
+    },
+    certificates: {
+      heading: "เกียรติบัตร",
+      intro: "หลักสูตรและเกียรติบัตรจากหน่วยงานภายนอก รวมถึงการอบรมภายในของการประปาส่วนภูมิภาค",
+      internalHeading: "การอบรมภายใน กปภ.",
+      showAll: "แสดงทั้งหมด",
+      hide: "ซ่อน",
+      viewPdf: "ดู PDF",
     },
     journey: {
       heading: "เส้นทาง",
