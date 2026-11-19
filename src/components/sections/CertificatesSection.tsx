@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Layers } from 'lucide-react';
-import { FadeIn } from '../animations/FadeIn';
+import { CertificatesHeader } from './CertificatesHeader';
 import { CardBack, CertificateCard } from '../ui/CertificateCard';
 import { CertificateModal } from '../ui/CertificateModal';
 import { featuredCertificates, internalCertificates, type Certificate } from '../../data/certificates';
@@ -19,17 +19,9 @@ export const CertificatesSection: React.FC = () => {
   return (
     <section id="certificates" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-bg-primary relative z-10 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <FadeIn delay={0} y={30}>
-          <h2
-            className="font-black uppercase tracking-tight text-text-primary text-center mb-4"
-            style={{ fontSize: 'clamp(2.5rem, 8vw, 72px)' }}
-          >
-            {t.certificates.heading}
-          </h2>
-          <p className="text-text-muted/80 text-center max-w-2xl mx-auto mb-16 font-light leading-relaxed">
-            {t.certificates.intro}
-          </p>
-        </FadeIn>
+        <CertificatesHeader
+          onSelect={(cert) => setSelectedCert({ cert, number: featuredCertificates.indexOf(cert) + 1 })}
+        />
 
         {/* Featured: rare+ cards dealt into a hand */}
         <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 justify-items-center">

@@ -137,7 +137,17 @@ const internal = (
   date: string,
   file: string,
   category: CertificateCategory,
-): Certificate => ({ title, issuer: PWA, issuerCode: 'PWA', date, file, category, rarity: 'common' });
+  artImage?: string,
+): Certificate => ({
+  title,
+  issuer: PWA,
+  issuerCode: 'PWA',
+  date,
+  file,
+  category,
+  rarity: 'common',
+  artImage,
+});
 
 export const internalCertificates: Certificate[] = [
   internal(
@@ -148,6 +158,7 @@ export const internalCertificates: Certificate[] = [
     '2026-07-06',
     'pwa-cybersecurity-awareness.pdf',
     'security',
+    '/assets/images/yugioh-pwa-cybersecurity.jpg',
   ),
   internal(
     {
@@ -157,89 +168,104 @@ export const internalCertificates: Certificate[] = [
     '2026-07-06',
     'pwa-rm-ic-bcm.pdf',
     'risk',
+    '/assets/images/yugioh-pwa-rm-ic-bcm.jpg',
   ),
   internal(
     { en: 'Green Office management', th: 'สร้างความรู้ความเข้าใจการจัดการสำนักงานสีเขียว (Green Office)' },
     '2026-07-08',
     'pwa-green-office.pdf',
     'green',
+    '/assets/images/yugioh-pwa-green-office.jpg',
   ),
   internal(
     { en: 'Workplace safety and occupational health', th: 'ความปลอดภัย อาชีวอนามัยในการทำงาน' },
     '2026-07-06',
     'pwa-safety-health.pdf',
     'safety',
+    '/assets/images/yugioh-pwa-safety.jpg',
   ),
   internal(
     { en: 'Anti-corruption and ethics', th: 'ความรู้เกี่ยวกับการป้องกันทุจริตและส่งเสริมจริยธรรม' },
     '2026-08-04',
     'pwa-anti-corruption-ethics.pdf',
     'ethics',
+    '/assets/images/yugioh-pwa-ethics.jpg',
   ),
   internal(
     { en: 'Corporate values and culture', th: 'ความรู้เกี่ยวกับค่านิยมและวัฒนธรรมองค์กร' },
     '2026-08-05',
     'pwa-values-culture.pdf',
     'culture',
+    '/assets/images/yugioh-pwa-rm-ic-bcm.jpg',
   ),
   internal(
     { en: 'Risk management (RM)', th: 'ความรู้เกี่ยวกับการบริหารความเสี่ยง (RM)' },
     '2026-08-05',
     'pwa-risk-management.pdf',
     'risk',
+    '/assets/images/yugioh-pwa-rm-ic-bcm.jpg',
   ),
   internal(
     { en: 'Internal control (IC)', th: 'ความรู้เกี่ยวกับการควบคุมภายใน (IC)' },
     '2026-08-05',
     'pwa-internal-control.pdf',
     'control',
+    '/assets/images/yugioh-pwa-rm-ic-bcm.jpg',
   ),
   internal(
     { en: 'Business continuity management (BCM)', th: 'ความรู้เกี่ยวกับการบริหารความต่อเนื่องทางธุรกิจ (BCM)' },
     '2026-08-05',
     'pwa-bcm.pdf',
     'continuity',
+    '/assets/images/yugioh-pwa-safety.jpg',
   ),
   internal(
     { en: 'PWA water production systems', th: 'ความรู้เกี่ยวกับระบบผลิตน้ำประปา การประปาส่วนภูมิภาค' },
     '2026-08-05',
     'pwa-water-production.pdf',
     'water',
+    '/assets/images/yugioh-pwa-green-office.jpg',
   ),
   internal(
     { en: 'Human resource management', th: 'ความรู้เกี่ยวกับการบริหารทรัพยากรบุคคล' },
     '2026-08-05',
     'pwa-hr-management.pdf',
     'people',
+    '/assets/images/yugioh-pwa-ethics.jpg',
   ),
   internal(
     { en: 'Digital technology in HR', th: 'ความรู้เกี่ยวกับเทคโนโลยีดิจิทัลในงาน HR' },
     '2026-08-05',
     'pwa-digital-hr.pdf',
     'digital',
+    '/assets/images/yugioh-pwa-cybersecurity.jpg',
   ),
   internal(
     { en: 'Employee discipline', th: 'ความรู้เกี่ยวกับวินัยพนักงาน' },
     '2026-08-05',
     'pwa-employee-discipline.pdf',
     'discipline',
+    '/assets/images/yugioh-pwa-ethics.jpg',
   ),
   internal(
     { en: 'Performance evaluation', th: 'ความรู้เกี่ยวกับการประเมินผลการปฏิบัติงาน' },
     '2026-08-05',
     'pwa-performance-evaluation.pdf',
     'performance',
+    '/assets/images/yugioh-pwa-ethics.jpg',
   ),
   internal(
     { en: 'Career progression paths', th: 'ความรู้เกี่ยวกับเส้นทางความก้าวหน้าสายอาชีพ' },
     '2026-08-11',
     'pwa-career-path.pdf',
     'career',
+    '/assets/images/yugioh-pwa-cybersecurity.jpg',
   ),
   internal(
     { en: 'Knowledge management and innovation', th: 'ความรู้เกี่ยวกับการจัดการความรู้และนวัตกรรม' },
     '2026-08-11',
     'pwa-knowledge-innovation.pdf',
     'knowledge',
+    '/assets/images/yugioh-pwa-rm-ic-bcm.jpg',
   ),
 ];

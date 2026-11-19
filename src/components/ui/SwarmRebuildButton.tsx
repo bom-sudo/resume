@@ -1,6 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { MousePointer2 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import {
+  playSwarmDeploySound,
+  playSwarmBuildTick,
+  playSwarmSpeedSound,
+  playSwarmCountSound,
+  playSwarmDoneSound,
+  playSwarmPowerDownSound,
+} from '../../lib/cyberSound';
 import '../../lib/vendor/cursor-swarm.js';
 
 // cursor-swarm.js (MIT, ZhengLinLei) registers window.CursorSwarm. The page is rebuilt as the
@@ -33,6 +41,7 @@ export const SwarmRebuildButton: React.FC = () => {
   speedRef.current = speed;
 
   const exit = useCallback(() => {
+    playSwarmPowerDownSound();
     swarmRef.current?.destroy();
     swarmRef.current = null;
     setActive(false);
@@ -51,11 +60,18 @@ export const SwarmRebuildButton: React.FC = () => {
       hudPosition: 'bottom-right',
       ignore: '[data-cs-ignore]',
       respectReducedMotion: false,
+      onBuild: (_el: unknown, type: string) => {
+        playSwarmBuildTick(type);
+      },
+      onDone: () => {
+        playSwarmDoneSound();
+      },
     }).init();
   }, []);
 
   const start = useCallback(() => {
     if (swarmRef.current) return;
+    playSwarmDeploySound();
     window.scrollTo({ top: 0, behavior: 'instant' });
     swarmRef.current = create(cursors);
     if (swarmRef.current) setActive(true);
@@ -65,6 +81,7 @@ export const SwarmRebuildButton: React.FC = () => {
   const changeCursors = (delta: number) => {
     const next = Math.min(MAX_CURSORS, Math.max(MIN_CURSORS, cursors + delta));
     if (next === cursors) return;
+    playSwarmCountSound(delta > 0);
     setCursors(next);
     if (!swarmRef.current) return;
     swarmRef.current.destroy();
@@ -73,11 +90,13 @@ export const SwarmRebuildButton: React.FC = () => {
   };
 
   const changeSpeed = (n: number) => {
+    playSwarmSpeedSound(n);
     setSpeed(n);
     swarmRef.current?.setSpeed(n);
   };
 
   const togglePause = () => {
+    playSwarmPowerDownSound();
     swarmRef.current?.toggle();
     setPaused((v) => !v);
   };

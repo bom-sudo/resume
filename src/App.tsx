@@ -12,27 +12,40 @@ import { FooterSection } from './components/sections/FooterSection';
 import { ThemeToggle } from './components/ThemeToggle';
 import { LanguageToggle } from './components/LanguageToggle';
 import { SwarmRebuildButton } from './components/ui/SwarmRebuildButton';
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { LanguageTransitionOverlay } from './components/animations/LanguageTransitionOverlay';
+
+function MainContent() {
+  const { isTransitioning } = useLanguage();
+
+  return (
+    <main
+      className={`bg-bg-primary min-h-screen text-text-muted font-sans selection:bg-[#B600A8]/30 selection:text-white overflow-x-clip w-full transition-[filter,opacity] duration-200 ${isTransitioning ? 'blur-[1.5px] opacity-90' : 'blur-0 opacity-100'
+        }`}
+    >
+      <LanguageTransitionOverlay />
+      <ThemeToggle />
+      <LanguageToggle />
+      <SwarmRebuildButton />
+      <HeroSection />
+      <MarqueeSection />
+      <AboutSection />
+      <EducationSection />
+      <CertificatesSection />
+      <ExperienceSection />
+      <FocusSection />
+      <ServicesSection />
+      <TechStackSection />
+      <ProjectsSection />
+      <FooterSection />
+    </main>
+  );
+}
 
 function App() {
   return (
     <LanguageProvider>
-      <main className="bg-bg-primary min-h-screen text-text-muted font-sans selection:bg-[#B600A8]/30 selection:text-white overflow-x-clip w-full">
-        <ThemeToggle />
-        <LanguageToggle />
-        <SwarmRebuildButton />
-        <HeroSection />
-        <MarqueeSection />
-        <AboutSection />
-        <EducationSection />
-        <CertificatesSection />
-        <ExperienceSection />
-        <FocusSection />
-        <ServicesSection />
-        <TechStackSection />
-        <ProjectsSection />
-        <FooterSection />
-      </main>
+      <MainContent />
     </LanguageProvider>
   );
 }

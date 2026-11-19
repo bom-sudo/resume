@@ -2,6 +2,7 @@ import React from 'react';
 import { FadeIn } from '../animations/FadeIn';
 import { Magnet } from '../animations/Magnet';
 import { ContactButton } from '../ui/ContactButton';
+import { NavCertificates } from '../ui/NavCertificates';
 import { useLanguage } from '../../context/LanguageContext';
 
 
@@ -18,15 +19,18 @@ export const HeroSection: React.FC = () => {
     <section className="h-screen flex flex-col overflow-x-clip relative">
       {/* Navbar */}
       <FadeIn delay={0} y={-20} className="w-full pt-6 md:pt-8 relative z-50 px-6">
-        <nav className="liquid-glass rounded-full px-2 py-2 max-w-5xl mx-auto flex justify-between sm:justify-center sm:gap-8 items-center font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem]">
+        <nav className="liquid-glass rounded-full px-2 py-2 max-w-5xl mx-auto flex justify-between sm:justify-center sm:gap-1 lg:gap-2 items-center font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem]">
           {navItems.map((item) => (
-            <a
-              key={item.key}
-              href={`#${item.key}`}
-              className="px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-text-muted/70 hover:text-text-primary hover:bg-white/10 transition-all duration-300 ease-out"
-            >
-              {item.label}
-            </a>
+            <React.Fragment key={item.key}>
+              {/* เมนูเกียรติบัตร: กดแล้วกางการ์ดเกียรติบัตรออกมา (อยู่ระหว่าง Projects กับ Contact) */}
+              {item.key === 'contact' && <NavCertificates />}
+              <a
+                href={`#${item.key}`}
+                className="px-4 py-2 sm:px-3 lg:px-4 xl:px-6 sm:py-2.5 rounded-full text-text-muted/70 hover:text-text-primary hover:bg-white/10 transition-all duration-300 ease-out"
+              >
+                {item.label}
+              </a>
+            </React.Fragment>
           ))}
         </nav>
       </FadeIn>
