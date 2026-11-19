@@ -114,14 +114,23 @@ interface CertificateCardProps {
   total: number;
   /** Smaller card for the internal deck. */
   mini?: boolean;
+  /** Callback when card is selected / clicked to view modal. */
+  onSelect?: () => void;
 }
 
-export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, number, total, mini }) => {
+export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, number, total, mini, onSelect }) => {
   const { lang, t } = useLanguage();
   const ref = useRef<HTMLAnchorElement>(null);
   const cat = CATEGORY[cert.category];
   const rar = RARITY[cert.rarity];
   const Icon = cat.icon;
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (onSelect) {
+      e.preventDefault();
+      onSelect();
+    }
+  };
 
   const date = new Date(cert.date).toLocaleDateString(lang === 'th' ? 'th-TH' : 'en-GB', {
     day: 'numeric',
@@ -158,15 +167,15 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, number, 
       rel="noopener noreferrer"
       aria-label={`${cert.title[lang]}, ${cert.issuer[lang]} (${t.certificates.viewPdf})`}
       title={cert.title[lang]}
+      onClick={handleClick}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
       className={`tcg-card group block w-full aspect-[5/7] ${mini ? 'rounded-[14px] p-[5px]' : 'rounded-[22px] p-[8px]'}`}
       style={{ background: rar.frame, '--glow': rar.glow } as React.CSSProperties}
     >
       <div
-        className={`relative h-full flex flex-col overflow-hidden bg-[#10131c] text-white ${
-          mini ? 'rounded-[10px] p-2 gap-1.5' : 'rounded-[15px] p-3 gap-2'
-        }`}
+        className={`relative h-full flex flex-col overflow-hidden bg-[#10131c] text-white ${mini ? 'rounded-[10px] p-2 gap-1.5' : 'rounded-[15px] p-3 gap-2'
+          }`}
       >
         {/* Header: category + issuer gem */}
         <div className="flex items-center justify-between gap-2">
@@ -176,9 +185,8 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, number, 
             {cat.label[lang]}
           </span>
           <span
-            className={`shrink-0 rounded-full font-black tracking-tight text-[#10131c] shadow-inner ${
-              mini ? 'text-[8px] px-1.5 py-0.5' : 'text-[10px] px-2 py-0.5'
-            }`}
+            className={`shrink-0 rounded-full font-black tracking-tight text-[#10131c] shadow-inner ${mini ? 'text-[8px] px-1.5 py-0.5' : 'text-[10px] px-2 py-0.5'
+              }`}
             style={{ background: rar.frame }}
           >
             {cert.issuerCode}
@@ -187,31 +195,38 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, number, 
 
         {/* Art window */}
         <div
-          className={`tcg-art relative overflow-hidden flex items-center justify-center ${
-            mini ? 'rounded-md h-[38%]' : 'rounded-lg h-[44%]'
-          }`}
+          className={`tcg-art relative overflow-hidden flex items-center justify-center ${mini ? 'rounded-md h-[38%]' : 'rounded-lg h-[44%]'
+            }`}
           style={{ background: `linear-gradient(135deg, ${cat.from}, ${cat.to})` }}
         >
-          <span
-            aria-hidden
-            className={`absolute font-black text-white/10 select-none ${mini ? 'text-4xl' : 'text-7xl'} -bottom-2 -right-1`}
-          >
-            {cert.issuerCode}
-          </span>
-          <Icon
-            aria-hidden
-            className={`relative text-white drop-shadow-[0_4px_12px_rgba(0,0,0,.35)] transition-transform duration-500 group-hover:scale-110 ${
-              mini ? 'w-9 h-9' : 'w-16 h-16'
-            }`}
-            strokeWidth={1.5}
-          />
+          {cert.artImage ? (
+            <img
+              src={cert.artImage}
+              alt={cert.title[lang]}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <>
+              <span
+                aria-hidden
+                className={`absolute font-black text-white/10 select-none ${mini ? 'text-4xl' : 'text-7xl'} -bottom-2 -right-1`}
+              >
+                {cert.issuerCode}
+              </span>
+              <Icon
+                aria-hidden
+                className={`relative text-white drop-shadow-[0_4px_12px_rgba(0,0,0,.35)] transition-transform duration-500 group-hover:scale-110 ${mini ? 'w-9 h-9' : 'w-16 h-16'
+                  }`}
+                strokeWidth={1.5}
+              />
+            </>
+          )}
         </div>
 
         {/* Type line */}
         <div
-          className={`flex items-center justify-between rounded border border-white/10 bg-white/[0.06] ${
-            mini ? 'px-1.5 py-0.5 text-[8px]' : 'px-2 py-1 text-[10px]'
-          } uppercase tracking-wider text-white/70`}
+          className={`flex items-center justify-between rounded border border-white/10 bg-white/[0.06] ${mini ? 'px-1.5 py-0.5 text-[8px]' : 'px-2 py-1 text-[10px]'
+            } uppercase tracking-wider text-white/70`}
         >
           <span>{lang === 'th' ? 'เกียรติบัตร' : 'Certificate'}</span>
           <span className="flex gap-0.5" aria-label={rar.label}>
@@ -224,9 +239,8 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, number, 
         {/* Text box */}
         <div className="flex-1 min-h-0 flex flex-col gap-1">
           <h3
-            className={`font-bold leading-snug text-white ${
-              mini ? 'text-[11px] line-clamp-4' : 'text-sm sm:text-[15px] line-clamp-3'
-            }`}
+            className={`font-bold leading-snug text-white ${mini ? 'text-[11px] line-clamp-4' : 'text-sm sm:text-[15px] line-clamp-3'
+              }`}
           >
             {cert.title[lang]}
           </h3>
@@ -235,9 +249,8 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, number, 
 
         {/* Footer */}
         <div
-          className={`flex items-center justify-between border-t border-white/10 text-white/55 ${
-            mini ? 'pt-1 text-[8px]' : 'pt-1.5 text-[10px]'
-          }`}
+          className={`flex items-center justify-between border-t border-white/10 text-white/55 ${mini ? 'pt-1 text-[8px]' : 'pt-1.5 text-[10px]'
+            }`}
         >
           <span className="tabular-nums">{mini ? no : date}</span>
           {mini ? (

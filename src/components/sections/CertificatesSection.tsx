@@ -3,7 +3,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Layers } from 'lucide-react';
 import { FadeIn } from '../animations/FadeIn';
 import { CardBack, CertificateCard } from '../ui/CertificateCard';
-import { featuredCertificates, internalCertificates } from '../../data/certificates';
+import { CertificateModal } from '../ui/CertificateModal';
+import { featuredCertificates, internalCertificates, type Certificate } from '../../data/certificates';
 import { useLanguage } from '../../context/LanguageContext';
 
 const TOTAL = featuredCertificates.length + internalCertificates.length;
@@ -13,6 +14,7 @@ const FAN = [-3, 1.5, -1.5, 2.5, -2, 1];
 export const CertificatesSection: React.FC = () => {
   const { t } = useLanguage();
   const [showInternal, setShowInternal] = useState(false);
+  const [selectedCert, setSelectedCert] = useState<{ cert: Certificate; number: number } | null>(null);
 
   return (
     <section id="certificates" className="px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-bg-primary relative z-10 overflow-hidden">
@@ -44,7 +46,12 @@ export const CertificatesSection: React.FC = () => {
                 className="[rotate:var(--fan)] hover:[rotate:0deg] transition-[rotate] duration-300"
                 style={{ '--fan': `${FAN[i % FAN.length]}deg` } as React.CSSProperties}
               >
-                <CertificateCard cert={cert} number={i + 1} total={TOTAL} />
+                <CertificateCard
+                  cert={cert}
+                  number={i + 1}
+                  total={TOTAL}
+                  onSelect={() => setSelectedCert({ cert, number: i + 1 })}
+                />
               </div>
             </motion.div>
           ))}
@@ -107,6 +114,12 @@ export const CertificatesSection: React.FC = () => {
                       number={featuredCertificates.length + i + 1}
                       total={TOTAL}
                       mini
+                      onSelect={() =>
+                        setSelectedCert({
+                          cert,
+                          number: featuredCertificates.length + i + 1,
+                        })
+                      }
                     />
                   </motion.div>
                 ))}
@@ -115,6 +128,14 @@ export const CertificatesSection: React.FC = () => {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Sleek Certificate Modal / Card & PDF Inspector */}
+      <CertificateModal
+        cert={selectedCert?.cert ?? null}
+        number={selectedCert?.number ?? 1}
+        total={TOTAL}
+        onClose={() => setSelectedCert(null)}
+      />
     </section>
   );
 };

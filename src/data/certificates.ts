@@ -40,6 +40,7 @@ export interface Certificate {
   file: string;
   category: CertificateCategory;
   rarity: CertificateRarity;
+  artImage?: string;
 }
 
 const PWA: Bilingual = { en: 'Provincial Waterworks Authority', th: 'การประปาส่วนภูมิภาค' };
@@ -64,6 +65,7 @@ export const featuredCertificates: Certificate[] = [
     file: 'dga-ai-governance-ethics.pdf',
     category: 'ai',
     rarity: 'legendary',
+    artImage: '/assets/images/yugioh-ai-governance.jpg',
   },
   {
     title: {
@@ -76,6 +78,7 @@ export const featuredCertificates: Certificate[] = [
     file: 'canva-ai-buu-mooc.pdf',
     category: 'design',
     rarity: 'epic',
+    artImage: '/assets/images/yugioh-canva-ai.jpg',
   },
   {
     title: {
@@ -88,6 +91,7 @@ export const featuredCertificates: Certificate[] = [
     file: 'pdpc-general-public.pdf',
     category: 'privacy',
     rarity: 'rare',
+    artImage: '/assets/images/yugioh-pdpa-public.jpg',
   },
   {
     title: {
@@ -100,6 +104,7 @@ export const featuredCertificates: Certificate[] = [
     file: 'pdpc-controller-duties.pdf',
     category: 'privacy',
     rarity: 'epic',
+    artImage: '/assets/images/yugioh-pdpa-duties.jpg',
   },
   {
     title: {
@@ -112,6 +117,7 @@ export const featuredCertificates: Certificate[] = [
     file: 'set-ce102-zero-waste-office.pdf',
     category: 'waste',
     rarity: 'rare',
+    artImage: '/assets/images/yugioh-zero-waste.jpg',
   },
   {
     title: { en: 'CFO 02 Carbon Footprint for Organization', th: 'CFO 02 Carbon Footprint for Organization' },
@@ -121,6 +127,7 @@ export const featuredCertificates: Certificate[] = [
     file: 'set-cfo02-carbon-footprint.pdf',
     category: 'carbon',
     rarity: 'rare',
+    artImage: '/assets/images/yugioh-carbon-footprint.jpg',
   },
 ];
 
