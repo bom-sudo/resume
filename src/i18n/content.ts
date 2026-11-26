@@ -47,6 +47,7 @@ export interface Content {
     journey: string;
     skills: string;
     projects: string;
+    certificates: string;
     contact: string;
   };
   hero: {
@@ -61,6 +62,14 @@ export interface Content {
     heading: string;
     intro: string;
     entries: [EducationEntryText, EducationEntryText];
+  };
+  certificates: {
+    heading: string;
+    intro: string;
+    internalHeading: string;
+    showAll: string;
+    hide: string;
+    viewPdf: string;
   };
   journey: {
     heading: string;
@@ -91,10 +100,29 @@ export interface Content {
       dev: string;
       ai: string;
     };
+    featuredRepos: {
+      heading: string;
+      intro: string;
+      viewGithub: string;
+      items: [
+        {
+          title: string;
+          desc: string;
+          tag: string;
+          tags: string[];
+        },
+        {
+          title: string;
+          desc: string;
+          tag: string;
+          tags: string[];
+        }
+      ];
+    };
   };
   projects: {
     heading: string;
-    items: [ProjectText, ProjectText, ProjectText, ProjectText];
+    items: ProjectText[];
   };
   footer: {
     eyebrow: string;
@@ -125,6 +153,7 @@ export const content: Record<Lang, Content> = {
       journey: "Journey",
       skills: "Skills",
       projects: "Projects",
+      certificates: "Certificates",
       contact: "Contact",
     },
     hero: {
@@ -153,6 +182,14 @@ export const content: Record<Lang, Content> = {
           highlights: ["Computer Science", "Systems & Networks"],
         },
       ],
+    },
+    certificates: {
+      heading: "Certificates",
+      intro: "Courses and certifications from outside organizations, plus internal training at the Provincial Waterworks Authority.",
+      internalHeading: "Internal training at PWA",
+      showAll: "Show all",
+      hide: "Hide",
+      viewPdf: "View PDF",
     },
     journey: {
       heading: "Journey",
@@ -223,8 +260,8 @@ export const content: Record<Lang, Content> = {
           desc: "Mapping ISO/IEC 27001 controls to real infrastructure, closing forensic and compliance gaps across cloud and on-prem systems.",
         },
         {
-          name: "AI-Powered Content Tools",
-          desc: "Building products like CutDock, an AI video editing tool that combines Whisper, Claude, and FFmpeg to turn raw footage into finished content.",
+          name: "Interactive Web Apps & Games",
+          desc: "Building interactive web projects like the ISAN retro web game and Dipbomber on Cloudflare Workers & Pages.",
         },
       ],
     },
@@ -238,14 +275,33 @@ export const content: Record<Lang, Content> = {
         dev: "Development & Scripting",
         ai: "AI & Machine Learning",
       },
+      featuredRepos: {
+        heading: "Featured Repositories",
+        intro: "Open-source tools, autonomous agent systems, and AI pipelines I've built and shared.",
+        viewGithub: "View Repository",
+        items: [
+          {
+            title: "swarm-web",
+            desc: "Autonomous multi-agent cursor swarm that rebuilds web pages piece by piece as you scroll.",
+            tag: "Agentic UI / Web",
+            tags: ["TypeScript", "Multi-Agent", "Web Animation", "Vite"],
+          },
+          {
+            title: "txt-ai-thai-ocr",
+            desc: "AI-powered Thai OCR pipeline for document text extraction, font recognition, and intelligent text parsing.",
+            tag: "AI / Thai OCR",
+            tags: ["Python", "OCR", "Thai NLP", "Computer Vision"],
+          },
+        ],
+      },
     },
     projects: {
       heading: "Project",
       items: [
         {
           label: "Personal",
-          desc: "AI video editing SaaS",
-          images: ["Timeline", "Editor UI", "AI Post-production"],
+          desc: "Interactive Web Game on Cloudflare Workers",
+          images: ["Gameplay", "Game Mechanics", "Arcade Experience"],
         },
         {
           label: "Client",
@@ -262,6 +318,11 @@ export const content: Record<Lang, Content> = {
           label: "Client",
           desc: "Premium Shirt Store",
           images: ["Product Focus", "Collection", "Store Experience"],
+        },
+        {
+          label: "Personal",
+          desc: "Interactive Web Application on Cloudflare Pages",
+          images: ["App Interface", "Core Features", "Live Application"],
         },
       ],
     },
@@ -293,6 +354,7 @@ export const content: Record<Lang, Content> = {
       journey: "เส้นทาง",
       skills: "ทักษะ",
       projects: "โปรเจกต์",
+      certificates: "เกียรติบัตร",
       contact: "ติดต่อ",
     },
     hero: {
@@ -321,6 +383,14 @@ export const content: Record<Lang, Content> = {
           highlights: ["วิทยาการคอมพิวเตอร์", "ระบบและเครือข่าย"],
         },
       ],
+    },
+    certificates: {
+      heading: "เกียรติบัตร",
+      intro: "หลักสูตรและเกียรติบัตรจากหน่วยงานภายนอก รวมถึงการอบรมภายในของการประปาส่วนภูมิภาค",
+      internalHeading: "การอบรมภายใน กปภ.",
+      showAll: "แสดงทั้งหมด",
+      hide: "ซ่อน",
+      viewPdf: "ดู PDF",
     },
     journey: {
       heading: "เส้นทาง",
@@ -391,8 +461,8 @@ export const content: Record<Lang, Content> = {
           desc: "แม็ปมาตรฐาน ISO/IEC 27001 เข้ากับระบบจริง ปิดช่องว่างด้าน Forensic และ Compliance ทั้งบน Cloud และ On-premise",
         },
         {
-          name: "AI-Powered Content Tools",
-          desc: "พัฒนาผลิตภัณฑ์อย่าง CutDock เครื่องมือตัดต่อวิดีโอด้วย AI ที่รวม Whisper, Claude และ FFmpeg เพื่อเปลี่ยนฟุตเทจดิบให้เป็นคอนเทนต์ที่พร้อมใช้งาน",
+          name: "เว็บเกม & อินเตอร์แอคทีฟแอป",
+          desc: "พัฒนาโปรเจกต์เว็บเกมอย่าง ISAN และเว็บแอปพลิเคชันอย่าง Dipbomber บน Cloudflare Workers & Pages",
         },
       ],
     },
@@ -406,14 +476,33 @@ export const content: Record<Lang, Content> = {
         dev: "การพัฒนา & Scripting",
         ai: "AI & Machine Learning",
       },
+      featuredRepos: {
+        heading: "คลังโค้ดที่น่าสนใจ (Featured Repos)",
+        intro: "โปรเจกต์ Open Source, เครื่องมือ AI และระบบจำลอง Agent บนเว็บที่ผมพัฒนาขึ้น",
+        viewGithub: "ดูบน GitHub",
+        items: [
+          {
+            title: "swarm-web",
+            desc: "ระบบจำลองฝูงเคอร์เซอร์ AI Multi-Agent ที่ประกอบและสร้างหน้าเว็บอัตโนมัติตามการเลื่อนหน้าจอ",
+            tag: "Agentic UI / Web",
+            tags: ["TypeScript", "Multi-Agent", "Web Animation", "Vite"],
+          },
+          {
+            title: "txt-ai-thai-ocr",
+            desc: "ระบบ AI OCR สกัดและแปลงข้อความภาษาไทยจากรูปภาพและเอกสาร พร้อมประมวลผลข้อความความแม่นยำสูง",
+            tag: "AI / Thai OCR",
+            tags: ["Python", "OCR", "Thai NLP", "Computer Vision"],
+          },
+        ],
+      },
     },
     projects: {
       heading: "โปรเจกต์",
       items: [
         {
           label: "ส่วนตัว",
-          desc: "SaaS ตัดต่อวิดีโอด้วย AI",
-          images: ["ไทม์ไลน์", "หน้าจอตัดต่อ", "งานหลังการผลิตด้วย AI"],
+          desc: "เว็บเกม Interactive พัฒนาบน Cloudflare Workers",
+          images: ["ระบบการเล่น", "กลไกเกม", "ประสบการณ์เกมสไตล์เรโทร"],
         },
         {
           label: "ลูกค้า",
@@ -430,6 +519,11 @@ export const content: Record<Lang, Content> = {
           label: "ลูกค้า",
           desc: "ร้านเสื้อเชิ้ตพรีเมียม",
           images: ["โฟกัสสินค้า", "คอลเลกชัน", "ภาพประสบการณ์หน้าร้าน"],
+        },
+        {
+          label: "ส่วนตัว",
+          desc: "เว็บแอปพลิเคชัน พัฒนาบน Cloudflare Pages",
+          images: ["หน้าจอแอป", "ฟีเจอร์หลัก", "การแสดงผลจริง"],
         },
       ],
     },

@@ -24,23 +24,23 @@ type Project = {
 const projectMeta = [
   {
     num: "01",
-    title: "Cutdock",
+    title: "ISAN",
     images: [
       {
-        src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=900&auto=format&fit=crop",
-        alt: "Video editing software timeline on a monitor",
+        src: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=900&auto=format&fit=crop",
+        alt: "Retro video game arcade controls and display",
       },
       {
-        src: "https://images.unsplash.com/photo-1551302175-952301267d19?q=80&w=900&auto=format&fit=crop",
-        alt: "Creative workstation with video editing panels",
+        src: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=900&auto=format&fit=crop",
+        alt: "Glowing neon game station",
       },
       {
-        src: "https://images.unsplash.com/photo-1574717024239-25253f4ef40a?q=80&w=1200&auto=format&fit=crop",
-        alt: "Professional video editing workspace",
+        src: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop",
+        alt: "Interactive cyberpunk web gaming environment",
       },
     ],
-    href: "https://cutdock.vercel.app/",
-    accent: "#B600A8",
+    href: "https://isan.bom-sudo.workers.dev/",
+    accent: "#10B981",
   },
   {
     num: "02",
@@ -99,8 +99,28 @@ const projectMeta = [
         alt: "Modern clothing store aesthetic",
       },
     ],
-    href: "https://garanbkk.vercel.app/",
+    href: "https://garanbkk.shop/",
     accent: "#3A86FF",
+  },
+  {
+    num: "05",
+    title: "Dipbomber",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900&auto=format&fit=crop",
+        alt: "Interactive modern web analytics dashboard",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=900&auto=format&fit=crop",
+        alt: "Web application UI design workspace",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+        alt: "Cloudflare Pages web platform application",
+      },
+    ],
+    href: "https://dipbomber.pages.dev/",
+    accent: "#EC4899",
   },
 ];
 
