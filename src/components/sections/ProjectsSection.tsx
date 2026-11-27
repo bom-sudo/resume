@@ -24,23 +24,23 @@ type Project = {
 const projectMeta = [
   {
     num: "01",
-    title: "ISAN",
+    title: "ISAN OF EMPIRES",
     images: [
       {
-        src: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=900&auto=format&fit=crop",
-        alt: "Retro video game arcade controls and display",
+        src: "/assets/images/projects/isan-hud.jpg",
+        alt: "ISAN OF EMPIRES 3D RTS gameplay view with resources, units, and HUD",
       },
       {
-        src: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=900&auto=format&fit=crop",
-        alt: "Glowing neon game station",
+        src: "/assets/images/projects/isan-map.webp",
+        alt: "Mun River strategic RTS battlefield map with sandstone island temple",
       },
       {
-        src: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop",
-        alt: "Interactive cyberpunk web gaming environment",
+        src: "/assets/images/projects/isan-keyart.webp",
+        alt: "ISAN OF EMPIRES key art featuring war elephants and ancient Isan temple",
       },
     ],
     href: "https://isan.bom-sudo.workers.dev/",
-    accent: "#10B981",
+    accent: "#F59E0B",
   },
   {
     num: "02",
@@ -122,6 +122,26 @@ const projectMeta = [
     href: "https://dipbomber.pages.dev/",
     accent: "#EC4899",
   },
+  {
+    num: "06",
+    title: "NexaTerm",
+    images: [
+      {
+        src: "/assets/images/projects/nexaterm-sftp.png",
+        alt: "NexaTerm SFTP file manager connected to remote SSH server",
+      },
+      {
+        src: "/assets/images/projects/nexaterm-multiexec.png",
+        alt: "NexaTerm multi-execution broadcast across split SSH terminals",
+      },
+      {
+        src: "/assets/images/projects/nexaterm-workspace.png",
+        alt: "NexaTerm remote administration workspace with PowerShell and SSH split panes",
+      },
+    ],
+    href: "https://nexaterm.pages.dev/",
+    accent: "#38BDF8",
+  },
 ];
 
 export const ProjectsSection: React.FC = () => {
@@ -176,7 +196,7 @@ const ProjectCard: React.FC<{ project: Project, index: number, totalCards: numbe
   const targetScale = 1 - (totalCards - 1 - index) * 0.03;
   const scale = useTransform(scrollYProgress, [0, 1], [1, targetScale]);
   
-  const topOffset = 96 + (index * 28); // 96px is 6rem (top-24)
+  const topOffset = 88 + (index * 22); // Keep 6 stacked cards comfortably inside the viewport
 
   return (
     <div ref={cardRef} className="h-[85vh] sticky flex items-center justify-center w-full" style={{ top: `${topOffset}px` }}>

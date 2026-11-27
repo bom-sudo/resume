@@ -260,8 +260,8 @@ export const content: Record<Lang, Content> = {
           desc: "Mapping ISO/IEC 27001 controls to real infrastructure, closing forensic and compliance gaps across cloud and on-prem systems.",
         },
         {
-          name: "Interactive Web Apps & Games",
-          desc: "Building interactive web projects like the ISAN retro web game and Dipbomber on Cloudflare Workers & Pages.",
+          name: "Interactive Web Apps & 3D Games",
+          desc: "Building systems like ISAN OF EMPIRES (3D WebGPU RTS on Cloudflare Durable Objects), NexaTerm (Tauri/Rust SSH workstation), and Dipbomber.",
         },
       ],
     },
@@ -300,8 +300,8 @@ export const content: Record<Lang, Content> = {
       items: [
         {
           label: "Personal",
-          desc: "Interactive Web Game on Cloudflare Workers",
-          images: ["Gameplay", "Game Mechanics", "Arcade Experience"],
+          desc: "3D Browser RTS Game (Three.js WebGPU + Cloudflare Durable Objects)",
+          images: ["Gameplay & HUD", "Mun River Map", "Isan of Empires"],
         },
         {
           label: "Client",
@@ -323,6 +323,11 @@ export const content: Record<Lang, Content> = {
           label: "Personal",
           desc: "Interactive Web Application on Cloudflare Pages",
           images: ["App Interface", "Core Features", "Live Application"],
+        },
+        {
+          label: "Open Source",
+          desc: "Windows SSH, SFTP & Multi-Exec Workstation (Tauri 2 + Rust)",
+          images: ["SFTP File Manager", "Multi-Execution", "Split Terminal & SSH"],
         },
       ],
     },
@@ -461,8 +466,8 @@ export const content: Record<Lang, Content> = {
           desc: "แม็ปมาตรฐาน ISO/IEC 27001 เข้ากับระบบจริง ปิดช่องว่างด้าน Forensic และ Compliance ทั้งบน Cloud และ On-premise",
         },
         {
-          name: "เว็บเกม & อินเตอร์แอคทีฟแอป",
-          desc: "พัฒนาโปรเจกต์เว็บเกมอย่าง ISAN และเว็บแอปพลิเคชันอย่าง Dipbomber บน Cloudflare Workers & Pages",
+          name: "เว็บแอป & เกม 3 มิติ",
+          desc: "พัฒนาระบบอย่างเกมวางแผน 3 มิติ ISAN OF EMPIRES บน Cloudflare Durable Objects, โปรแกรม NexaTerm (Tauri + Rust) และ Dipbomber",
         },
       ],
     },
@@ -501,8 +506,8 @@ export const content: Record<Lang, Content> = {
       items: [
         {
           label: "ส่วนตัว",
-          desc: "เว็บเกม Interactive พัฒนาบน Cloudflare Workers",
-          images: ["ระบบการเล่น", "กลไกเกม", "ประสบการณ์เกมสไตล์เรโทร"],
+          desc: "เกมวางแผนการรบ 3 มิติ (RTS) บนเว็บ ด้วย Three.js WebGPU + Cloudflare Durable Objects",
+          images: ["หน้าจอเกมและ HUD", "แผนที่ลำน้ำมูล", "มหาสงครามอีสาน"],
         },
         {
           label: "ลูกค้า",
@@ -524,6 +529,11 @@ export const content: Record<Lang, Content> = {
           label: "ส่วนตัว",
           desc: "เว็บแอปพลิเคชัน พัฒนาบน Cloudflare Pages",
           images: ["หน้าจอแอป", "ฟีเจอร์หลัก", "การแสดงผลจริง"],
+        },
+        {
+          label: "โอเพนซอร์ส",
+          desc: "โปรแกรมเทอร์มินัล SSH, SFTP และสั่งงานหลายเซิร์ฟเวอร์สำหรับ Windows (Tauri 2 + Rust)",
+          images: ["จัดการไฟล์ SFTP", "สั่งงานหลายเซิร์ฟเวอร์", "เทอร์มินัลและ SSH"],
         },
       ],
     },
